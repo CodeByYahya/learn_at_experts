@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="./input.css" rel="stylesheet" />
+    <link href="./output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="
+    https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
+    " rel="stylesheet" />
+</head>
+
+<body>
+    <!-- nav start -->
+    <nav class="bg-dark-blue sticky top-0 z-50  py-6 px-2 lg:p-0 border-gray-200">
+        <div class="container flex flex-wrap items-center justify-between mx-auto">
+            <a href="/index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <svg xmlns="http://www.w3.org/2000/svg" width="160" height="36" viewBox="0 0 160 36" fill="none"
+                    class="amsvglogo replaced-svg">
+                    <path d="M17.7273 14.4H14.1819C6.34608 14.4 0 7.9563 0 0H17.7273V14.4Z" fill="#F05B8A"></path>
+                    <path d="M31.909 14.3999V35.9999C24.0732 35.9999 17.7271 29.5562 17.7271 21.5999V14.3999H31.909Z"
+                        fill="#FFC649"></path>
+                    <path d="M31.909 14.4H17.7271V0L31.909 14.4Z" fill="#F04A2D"></path>
+                    <path
+                        d="M30.3501 6.78655L25.2256 1.58319C24.6496 0.998319 25.0568 0 25.8711 0H30.9857C31.4922 0 31.8994 0.413445 31.8994 0.927731V6.12101C31.9093 6.95798 30.9261 7.37143 30.3501 6.78655Z"
+                        fill="#FFC649"></path>
+                    <path d="M65.0983 4.90918V9.96953H57.5706V30.5776H52.5277V9.96953H45V4.90918H65.0983Z" fill="white">
+                    </path>
+                    <path
+                        d="M67.5393 21.5753V12.243H72.5821V21.502C72.5821 22.3698 72.7587 23.1582 73.112 23.8672C73.4652 24.5761 73.9586 25.1445 74.592 25.5723C75.2375 25.9879 75.9806 26.1957 76.8211 26.1957C77.6615 26.1957 78.368 25.9879 78.9405 25.5723C79.5252 25.1445 79.9698 24.5761 80.2743 23.8672C80.5788 23.1582 80.7311 22.3698 80.7311 21.502V12.243H85.774V30.5776H80.7311V28.6892C80.1586 29.3859 79.4704 29.9604 78.6664 30.4126C77.8747 30.8649 76.9672 31.091 75.944 31.091C74.2144 31.091 72.7222 30.6632 71.4676 29.8076C70.2251 28.952 69.2629 27.803 68.5807 26.3607C67.8986 24.9183 67.5514 23.3232 67.5393 21.5753Z"
+                        fill="white"></path>
+                    <path
+                        d="M100.286 17.3034H96.9976V30.5776H91.9548V17.3034H89.4333V12.243H91.9548V6.48596H96.9976V12.243H100.286V17.3034Z"
+                        fill="white"></path>
+                    <path
+                        d="M103.769 21.5753V12.243H108.812V21.502C108.812 22.3698 108.989 23.1582 109.342 23.8672C109.695 24.5761 110.188 25.1445 110.822 25.5723C111.467 25.9879 112.21 26.1957 113.051 26.1957C113.891 26.1957 114.598 25.9879 115.17 25.5723C115.755 25.1445 116.2 24.5761 116.504 23.8672C116.809 23.1582 116.961 22.3698 116.961 21.502V12.243H122.004V30.5776H116.961V28.6892C116.388 29.3859 115.7 29.9604 114.896 30.4126C114.105 30.8649 113.197 31.091 112.174 31.091C110.444 31.091 108.952 30.6632 107.697 29.8076C106.455 28.952 105.493 27.803 104.811 26.3607C104.128 24.9183 103.781 23.3232 103.769 21.5753Z"
+                        fill="white"></path>
+                    <path
+                        d="M137.96 17.4134C137.631 17.1689 137.265 16.9795 136.863 16.845C136.461 16.6983 136.017 16.625 135.53 16.625C134.701 16.625 133.995 16.8389 133.41 17.2667C132.838 17.6823 132.399 18.2446 132.095 18.9535C131.802 19.6624 131.656 20.4508 131.656 21.3187V30.5776H126.577V12.243H131.62V14.1315C132.204 13.4226 132.892 12.8542 133.684 12.4264C134.488 11.9863 135.402 11.7663 136.425 11.7663C136.839 11.7663 137.241 11.7785 137.631 11.803C138.021 11.8152 138.398 11.8763 138.764 11.9863L137.96 17.4134Z"
+                        fill="white"></path>
+                    <path
+                        d="M159.545 21.2086V30.5776H154.503V21.282C154.503 20.4264 154.326 19.6441 153.973 18.9352C153.619 18.2262 153.12 17.6578 152.474 17.23C151.841 16.8022 151.104 16.5883 150.264 16.5883C149.435 16.5883 148.729 16.8022 148.144 17.23C147.56 17.6578 147.115 18.2262 146.81 18.9352C146.506 19.6441 146.354 20.4264 146.354 21.282V30.5776H141.311V12.243H146.354V14.1315C146.938 13.4103 147.627 12.8297 148.418 12.3897C149.222 11.9497 150.136 11.7297 151.159 11.7297C152.876 11.7297 154.356 12.1575 155.599 13.0131C156.853 13.8687 157.822 15.0177 158.504 16.46C159.186 17.8901 159.533 19.473 159.545 21.2086Z"
+                        fill="white"></path>
+                </svg>
+            </a>
+            <button data-collapse-toggle="navbar-default" type="button"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-orange rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
+            </button>
+            <div class="hidden lg:sticky top-20 h-screen lg:h-auto left-0 z-50 bg-dark-blue w-full lg:flex lg:w-auto items-center"
+                id="navbar-default">
+                <ul
+                    class="font-medium flex flex-col p-4 lg:p-0 mt-4 border border-gray-100 rounded-lg lg:flex-row rtl:space-x-reverse lg:mt-0 lg:border-0">
+                    <li class="flex items-center relative group">
+                        <div class="flex items-center relative h-14 lg:h-20 text-left">
+                            <div>
+                                <button type="button"
+                                    class="flex items-center gap-3 !px-6 h-14 lg:h-20 relative text-white py-2 rounded-sm hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:p-0 z-10"
+                                    id="menu-button" aria-expanded="true" aria-haspopup="true">
+                                    Home
+                                    <svg class="-mr-1 size-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor"
+                                        aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <!-- animated top border -->
+                                    <span
+                                        class="absolute top-0 left-0 h-1 bg-yellow w-0 group-hover:w-full transition-all duration-300 ease-in-out"></span>
+                                </button>
+                            </div>
+
+                            <!-- Dropdown Menu -->
+                            <div class="absolute top-16 right-0 z-20 bg-white w-56 rounded-md shadow-lg ring-1 ring-black/5 hidden group-hover:block"
+                                role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                                <div class="py-1" role="none">
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                        role="menuitem">Account settings</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                        role="menuitem">Support</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                        role="menuitem">License</a>
+                                    <form method="POST" action="#" role="none">
+                                        <button type="submit"
+                                            class="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                                            role="menuitem">
+                                            Sign out
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="flex items-start group relative">
+                        <a href="how-it-work.html"
+                            class="h-14 lg:h-20 flex items-center !px-5 text-white rounded-sm lg:hover:bg-transparent lg:p-0 relative z-10">
+                            How it work
+                            <!-- animated border -->
+                            <span
+                                class="absolute top-0 left-0 h-1 bg-yellow w-0 group-hover:w-full transition-all duration-300"></span>
+                        </a>
+                    </li>
+
+                    <li class="flex items-start group relative">
+                        <a href="#"
+                            class="h-14 lg:h-20 flex items-center !px-5 text-white rounded-sm lg:hover:bg-transparent lg:p-0 relative z-10">
+                            Find instructors
+                            <!-- animated border -->
+                            <span
+                                class="absolute top-0 left-0 h-1 bg-yellow w-0 group-hover:w-full transition-all duration-300"></span>
+                        </a>
+                    </li>
+                    <li class="flex items-start group relative">
+                        <a href="#"
+                            class="h-14 lg:h-20 flex items-center !px-5 text-white rounded-sm lg:hover:bg-transparent lg:p-0 relative z-10">
+                            Pages
+                            <!-- animated border -->
+                            <span
+                                class="absolute top-0 left-0 h-1 bg-yellow w-0 group-hover:w-full transition-all duration-300"></span>
+                        </a>
+                    </li>
+                    <li class="flex items-start group relative">
+                        <a href="/contact-us.html"
+                            class="h-14 lg:h-20 flex items-center !px-5 text-white rounded-sm lg:hover:bg-transparent lg:p-0 relative z-10">
+                            Contact Us
+                            <!-- animated border -->
+                            <span
+                                class="absolute top-0 left-0 h-1 bg-yellow w-0 group-hover:w-full transition-all duration-300"></span>
+                        </a>
+                    </li>
+                    <li class="flex items-center ml-4 lg:ml-0">
+                        <button type="button"
+                            class="bg-orange px-3 py-2 rounded-md self-center text-white text-base font-medium">
+                            <a href="loign.html">Get Started</a>
+
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- nav end -->
+    <!-- hero section -->
+    <section class="relative">
+        <div class="bg-dark-blue flex justify-center px-4 lg:px-30 lg:[clip-path:polygon(0_0,100%_0,100%_50%,0%_100%)]">
+            <div id="particles-js"></div>
+            <img src="./assets//images/line-image.png" class="size-60 z-50 absolute bottom-0 left-0 hidden lg:block" />
+            <div class="flex flex-col container pt-16 lg:pt-30 py-10 lg:py-0 lg:min-h-[800px]">
+                <h1 class="text-[38px] lg:text-5xl leading-14 text-white font-extrabold w-full lg:w-[60%]">
+                    A good <span class="text-orange">#education</span> is always a base
+                    of a bright future
+                </h1>
+                <p class="mt-6 lg:mt-8 text-lg w-full lg:w-[55%] font-medium text-white">
+                    Consectur adipiscing elitsedo eiusmod tempor incididuntem utaborate
+                    dolore magna aliqua ad minim veniamque.
+                </p>
+
+                <!-- search -->
+                <div class="relative p-2 lg:p-0 bg-white rounded-lg w-full lg:w-3/5 mt-6">
+                    <!-- Search Icon (left inside input) -->
+                    <span class="absolute top-5 lg:inset-y-0 left-0 flex items-center pl-3 text-gray-500">
+                        <svg class="size-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 21l-4.35-4.35m1.8-5.4a7.5 7.5 0 11-15 0 7.5 7.5 0 0115 0z" />
+                        </svg>
+                    </span>
+
+                    <!-- Input -->
+                    <input type="text" placeholder="What are you looking for..."
+                        class="w-full pl-14 z-50 pr-4 lg:pr-48 py-3 lg:py-6 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm" />
+
+                    <!-- Dropdown Toggle (inside input, aligned right) -->
+                    <div class="lg:absolute z-50 inset-y-0 lg:right-36 my-3 flex items-center">
+                        <button id="dropdownToggle" type="button"
+                            class="flex items-center gap-1 w-full justify-between text-base text-gray-500 font-medium px-3 py-2 rounded-md focus:outline-none"
+                            aria-expanded="false" aria-haspopup="true">
+                            <span class="flex items-center gap-1">
+                                <i class="fa-solid fa-layer-group text-gray-500"></i>
+                                Select Category
+                            </span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Dropdown Menu -->
+                    <div id="dropdownMenu"
+                        class="hidden absolute left-0 lg:left-auto lg:right-28 bottom-full mt-2 w-full lg:w-60 z-10 bg-white rounded-md shadow-lg ring-1 ring-black/5">
+                        <div class="py-1 text-sm px-2 text-gray-700" role="menu" aria-orientation="vertical">
+                            <div class="relative smt-5 w-full">
+                                <!-- Search Icon (left inside input) -->
+                                <span class="absolute inset-y-0 left-0 flex items-center pl-2 text-gray-500">
+                                    <svg class="size-6" fill="none" stroke="currentColor" stroke-width="2"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M21 21l-4.35-4.35m1.8-5.4a7.5 7.5 0 11-15 0 7.5 7.5 0 0115 0z" />
+                                    </svg>
+                                </span>
+                                <!-- Input -->
+                                <input type="text" placeholder="Search..."
+                                    class="py-3 w-full pl-10 rounded-md bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm" />
+                            </div>
+                            <div class="max-h-40 overflow-auto">
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 font-bold text-base"
+                                    role="menuitem">Design</a>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 font-bold text-base"
+                                    role="menuitem">Development</a>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 font-bold text-base" font-bold
+                                    text-base role="menuitem">Marketing</a>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 font-bold text-base"
+                                    role="menuitem">Design</a>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 font-bold text-base"
+                                    role="menuitem">Development</a>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 font-bold text-base" font-bold
+                                    text-base role="menuitem">Marketing</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button
+                        class="lg:absolute inset-y-2 right-3 py-2 px-4 w-full lg:w-auto bg-orange text-white rounded-md font-semibold text-lg">
+                        Search Now
+                    </button>
+                </div>
+                <!-- search end -->
+                <div class="flex flex-col lg:flex-row lg:items-center gap-2 mt-5">
+                    <h5 class="text-white text-sm font-semibold">Popular Searches:</h5>
+                    <div class="flex gap-3 items-center">
+                        <span class="text-white text-sm hover:text-blue-400 cursor-pointer">Graduation,
+                        </span>
+                        <span class="text-white text-sm hover:text-blue-400 cursor-pointer">Health & Sports,
+                        </span>
+                        <span class="text-white text-sm hover:text-blue-400 cursor-pointer">Spoken Languages</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <img src="./assets//images/hero-image.png"
+            class="max-w-[50vw] absolute bottom-20 right-0 z-10 hidden lg:block" />
+    </section>
+    <!-- hero section -->
+
+    <!-- all platforms -->
+    <section class="px-4 md:px-10 flex flex-col items-center lg:px-40 my-16 lg:mt-0">
+        <div class="flex flex-col items-center gap-4 text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="54" height="10" viewBox="0 0 54 10" fill="none">
+                <path
+                    d="M39.5 10C35.6 10 33.5 8 31.9 6.4C30.4 5 29.3 4 27 4C24.7 4 23.6 5 22.1 6.4C20.5 8 18.4 10 14.5 10C10.6 10 8.5 8 6.9 6.4C5.4 5 4.3 4 2 4C0.9 4 0 3.1 0 2C0 0.9 0.9 0 2 0C5.9 0 8 2 9.6 3.6C11.1 5 12.2 6 14.5 6C16.8 6 17.9 5 19.4 3.6C21 2 23.1 0 27 0C30.9 0 33 2 34.6 3.6C36.1 5 37.2 6 39.5 6C41.8 6 42.9 5 44.4 3.6C46 2 48.1 0 52 0C53.1 0 54 0.9 54 2C54 3.1 53.1 4 52 4C49.7 4 48.6 5 47.1 6.4C45.5 8 43.4 10 39.5 10Z"
+                    fill="#F97316" />
+            </svg>
+            <p class="text-[22px] font-medium text-dark-gray">
+                Better Learning. Better Results
+            </p>
+            <h6 class="text-4xl font-bold text-dark-gray">
+                Online education platform for all
+            </h6>
+            <p class="text-sm text-dark-gray max-w-3xl">
+                Accusamus et iusidio dignissimos ducimus blanditiis praesentium
+                voluptatum deleniti atque corrupti quos dolores etmquasa molestias
+                epturi sint occaecati cupiditate non providente mikume.
+            </p>
+        </div>
+
+        <!-- Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-10">
+            <!-- Card -->
+            <div
+                class="flex items-center gap-4 border border-gray-200 px-5 py-6 hover:shadow-lg hover:border-orange transition-all duration-300 rounded-md">
+                <img src="/assets/images/platform1.png" class="size-16" />
+                <div>
+                    <h6 class="text-xl text-dark-gray font-semibold">
+                        Offering All types of Courses
+                    </h6>
+                    <p class="text-sm">
+                        Aeccusamus et iustome odio digniste simos ducimus blanditiis
+                    </p>
+                </div>
+            </div>
+
+            <!-- Repeat Card (x4) -->
+            <div
+                class="flex items-center gap-4 border border-gray-200 px-5 py-6 hover:shadow-lg hover:border-orange transition-all duration-300 rounded-md">
+                <img src="/assets/images/platform2.png" class="size-16" />
+                <div>
+                    <h6 class="text-xl text-dark-gray font-semibold">
+                        Offering All types of Courses
+                    </h6>
+                    <p class="text-sm">
+                        Aeccusamus et iustome odio digniste simos ducimus blanditiis
+                    </p>
+                </div>
+            </div>
+
+            <div
+                class="flex items-center gap-4 border border-gray-200 px-5 py-6 hover:shadow-lg hover:border-orange transition-all duration-300 rounded-md">
+                <img src="/assets/images/platform3.png" class="size-16" />
+                <div>
+                    <h6 class="text-xl text-dark-gray font-semibold">
+                        Offering All types of Courses
+                    </h6>
+                    <p class="text-sm">
+                        Aeccusamus et iustome odio digniste simos ducimus blanditiis
+                    </p>
+                </div>
+            </div>
+
+            <div
+                class="flex items-center gap-4 border border-gray-200 px-5 py-6 hover:shadow-lg hover:border-orange transition-all duration-300 rounded-md">
+                <img src="/assets/images/platform4.png" class="size-16" />
+                <div>
+                    <h6 class="text-xl text-dark-gray font-semibold">
+                        Offering All types of Courses
+                    </h6>
+                    <p class="text-sm">
+                        Aeccusamus et iustome odio digniste simos ducimus blanditiis
+                    </p>
+                </div>
+            </div>
+
+            <div
+                class="flex items-center gap-4 border border-gray-200 px-5 py-6 hover:shadow-lg hover:border-orange transition-all duration-300 rounded-md">
+                <img src="/assets/images/platform5.png" class="size-16" />
+                <div>
+                    <h6 class="text-xl text-dark-gray font-semibold">
+                        Offering All types of Courses
+                    </h6>
+                    <p class="text-sm">
+                        Aeccusamus et iustome odio digniste simos ducimus blanditiis
+                    </p>
+                </div>
+            </div>
+            <div
+                class="flex items-center gap-4 border border-gray-200 px-5 py-6 hover:shadow-lg hover:border-orange transition-all duration-300 rounded-md">
+                <img src="/assets/images/platform6.png" class="size-16" />
+                <div>
+                    <h6 class="text-xl text-dark-gray font-semibold">
+                        Offering All types of Courses
+                    </h6>
+                    <p class="text-sm">
+                        Aeccusamus et iustome odio digniste simos ducimus blanditiis
+                    </p>
+                </div>
+            </div>
+        </div>
+        <button
+            class="bg-purple px-5 py-3 flex items-center gap-3 rounded-md self-center text-white text-base font-medium">
+            Join our Community
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+            </svg>
+        </button>
+    </section>
+    <!-- all platforms end -->
+
+    <!-- Our success -->
+    <section class="bg-light-gray relative flex flex-col items-center lg:px-40">
+        <img src="./assets/images/wave-top-left.png" class="absolute top-0 right-0 h-[400px] pointer-events-none" />
+        <img src="./assets/images/shape-bottom-left.png"
+            class="absolute bottom-0 left-0 h-[400px] pointer-events-none" />
+
+        <!-- Header Content -->
+        <div
+            class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 text-center lg:text-left px-4 sm:px-10 lg:px-0 py-10 w-full container z-10">
+            <h6 class="text-3xl text-start sm:text-4xl font-bold lg:w-1/2">
+                Stats that explain everything about
+                <span class="text-blue">#Our success</span>
+            </h6>
+            <button class="bg-purple px-5 py-3 flex items-center gap-3 rounded-md text-white text-base font-medium">
+                See how it works
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Stats Grid -->
+        <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-10 lg:px-0 pb-16 w-full container z-10">
+            <!-- Card -->
+            <div class="bg-white flex flex-col gap-5 justify-center items-center p-8 rounded-md">
+                <div class="bg-light-gray p-5 rounded-full">
+                    <img src="./assets/images/success1.png" class="size-20" />
+                </div>
+                <h6 class="text-2xl font-semibold">560,616+</h6>
+                <p class="text-center">
+                    Courses available for verified and top tutors
+                </p>
+            </div>
+
+            <!-- Repeat as needed -->
+            <div class="bg-white flex flex-col gap-5 justify-center items-center p-8 rounded-md">
+                <div class="bg-light-gray p-5 rounded-full">
+                    <img src="./assets/images/success2.png" class="size-20" />
+                </div>
+                <h6 class="text-2xl font-semibold">560,616+</h6>
+                <p class="text-center">
+                    Courses available for verified and top tutors
+                </p>
+            </div>
+
+            <div class="bg-white flex flex-col gap-5 justify-center items-center p-8 rounded-md">
+                <div class="bg-light-gray p-5 rounded-full">
+                    <img src="./assets/images/success3.png" class="size-20" />
+                </div>
+                <h6 class="text-2xl font-semibold">560,616+</h6>
+                <p class="text-center">
+                    Courses available for verified and top tutors
+                </p>
+            </div>
+
+            <div class="bg-white flex flex-col gap-5 justify-center items-center p-8 rounded-md">
+                <div class="bg-light-gray p-5 rounded-full">
+                    <img src="./assets/images/success4.png" class="size-20" />
+                </div>
+                <h6 class="text-2xl font-semibold">560,616+</h6>
+                <p class="text-center">
+                    Courses available for verified and top tutors
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Our success end -->
+
+    <!-- categories -->
+    <section class="px-4 mt-20 md:px-10 flex flex-col items-center lg:px-40 my-16">
+        <div class="flex flex-col items-center gap-4 text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="54" height="10" viewBox="0 0 54 10" fill="none">
+                <path
+                    d="M39.5 10C35.6 10 33.5 8 31.9 6.4C30.4 5 29.3 4 27 4C24.7 4 23.6 5 22.1 6.4C20.5 8 18.4 10 14.5 10C10.6 10 8.5 8 6.9 6.4C5.4 5 4.3 4 2 4C0.9 4 0 3.1 0 2C0 0.9 0.9 0 2 0C5.9 0 8 2 9.6 3.6C11.1 5 12.2 6 14.5 6C16.8 6 17.9 5 19.4 3.6C21 2 23.1 0 27 0C30.9 0 33 2 34.6 3.6C36.1 5 37.2 6 39.5 6C41.8 6 42.9 5 44.4 3.6C46 2 48.1 0 52 0C53.1 0 54 0.9 54 2C54 3.1 53.1 4 52 4C49.7 4 48.6 5 47.1 6.4C45.5 8 43.4 10 39.5 10Z"
+                    fill="#F97316" />
+            </svg>
+            <p class="text-[22px] font-medium text-dark-gray">
+                Let’s make a quick start today
+            </p>
+            <h6 class="text-4xl font-semibold text-dark-gray">
+                Our top visited categories
+            </h6>
+            <p class="text-sm text-dark-gray max-w-3xl">
+                Accusamus et iusidio dignissimos ducimus blanditiis praesentium
+                voluptatum deleniti atque corrupti quos dolores etmquasa molestias
+                epturi sint occaecati cupiditate non providente mikume.
+            </p>
+        </div>
+        <div id="category-slider" class="splide mt-10 container" aria-label="Category slider">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <!-- Slide 1 -->
+                    <li class="splide__slide">
+                        <div class="relative overflow-hidden rounded-md group">
+                            <img src="./assets/images/category1.jpg" class="w-full h-full object-cover" />
+                            <div
+                                class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all duration-300 ease-in-out">
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-gray-900 opacity-70 scale-0 group-hover:scale-100 transition-transform duration-300 origin-bottom-left z-10 flex items-center justify-center">
+                                <!-- Plus icon SVG -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                                </svg>
+                            </div>
+                            <div class="absolute bottom-0 left-0 text-white text-sm px-3 py-2 z-20">
+                                <h6 class="text-xl font-semibold">Health & Sports</h6>
+                                <p>46 listings</p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Slide 2 -->
+                    <li class="splide__slide">
+                        <div class="relative overflow-hidden rounded-md group">
+                            <img src="./assets/images/category2.jpg" class="w-full h-full object-cover" />
+                            <div
+                                class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all duration-300 ease-in-out">
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-gray-900 opacity-70 scale-0 group-hover:scale-100 transition-transform duration-300 origin-bottom-left z-10 flex items-center justify-center">
+                                <!-- Plus icon SVG -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                                </svg>
+                            </div>
+                            <div class="absolute bottom-0 left-0 text-white text-sm px-3 py-2 z-20">
+                                <h6 class="text-xl font-semibold">Spoken languages</h6>
+                                <p>46 listings</p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Repeat similar slides for other categories -->
+
+                    <!-- Slide 3 -->
+                    <li class="splide__slide">
+                        <div class="relative overflow-hidden rounded-md group">
+                            <img src="./assets/images/category3.jpg" class="w-full h-full object-cover" />
+                            <div
+                                class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all duration-300 ease-in-out">
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-gray-900 opacity-70 scale-0 group-hover:scale-100 transition-transform duration-300 origin-bottom-left z-10 flex items-center justify-center">
+                                <!-- Plus icon SVG -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                                </svg>
+                            </div>
+                            <div class="absolute bottom-0 left-0 text-white text-sm px-3 py-2 z-20">
+                                <h6 class="text-xl font-semibold">Short courses</h6>
+                                <p>46 listings</p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Slide 4 -->
+                    <li class="splide__slide">
+                        <div class="relative overflow-hidden rounded-md group">
+                            <img src="./assets/images/category4.jpg" class="w-full h-full object-cover" />
+                            <div
+                                class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all duration-300 ease-in-out">
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-gray-900 opacity-70 scale-0 group-hover:scale-100 transition-transform duration-300 origin-bottom-left z-10 flex items-center justify-center">
+                                <!-- Plus icon SVG -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                                </svg>
+                            </div>
+                            <div class="absolute bottom-0 left-0 text-white text-sm px-3 py-2 z-20">
+                                <h6 class="text-xl font-semibold">IT & programming</h6>
+                                <p>46 listings</p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Slide 5 -->
+                    <li class="splide__slide">
+                        <div class="relative overflow-hidden rounded-md group">
+                            <img src="./assets/images/category5.jpg" class="w-full h-full object-cover" />
+                            <div
+                                class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all duration-300 ease-in-out">
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-gray-900 opacity-70 scale-0 group-hover:scale-100 transition-transform duration-300 origin-bottom-left z-10 flex items-center justify-center">
+                                <!-- Plus icon SVG -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                                </svg>
+                            </div>
+                            <div class="absolute bottom-0 left-0 text-white text-sm px-3 py-2 z-20">
+                                <h6 class="text-xl font-semibold">Basic & Primary</h6>
+                                <p>46 listings</p>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Slide 3 -->
+                    <li class="splide__slide">
+                        <div class="relative overflow-hidden rounded-md group">
+                            <img src="./assets/images/category3.jpg" class="w-full h-full object-cover" />
+                            <div
+                                class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all duration-300 ease-in-out">
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-gray-900 opacity-70 scale-0 group-hover:scale-100 transition-transform duration-300 origin-bottom-left z-10 flex items-center justify-center">
+                                <!-- Plus icon SVG -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                                </svg>
+                            </div>
+                            <div class="absolute bottom-0 left-0 text-white text-sm px-3 py-2 z-20">
+                                <h6 class="text-xl font-semibold">Short courses</h6>
+                                <p>46 listings</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="pagination-container" class="mt-10 flex justify-center"></div>
+        </div>
+        <button
+            class="bg-purple px-5 mt-5 py-3 flex items-center gap-3 rounded-md self-center text-white text-base font-medium">
+            Let's make a quick start today
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            </svg>
+        </button>
+    </section>
+    <!-- categories end -->
+
+    <!-- success stories -->
+    <section class="bg-light-gray relative flex flex-col items-center py-10 lg:px-40">
+        <img src="./assets/images/wave-top-left.png" class="absolute top-0 right-0 h-[400px] pointer-events-none" />
+        <img src="./assets/images/shape-bottom-left.png"
+            class="absolute bottom-0 left-0 h-[400px] pointer-events-none" />
+
+        <!-- Header Content -->
+        <div
+            class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 text-center lg:text-left px-4 sm:px-10 lg:px-0 py-10 w-full container z-10">
+            <h6 class="text-3xl text-start sm:text-4xl font-bold lg:w-1/2">
+                Stats that explain everything about
+                <span class="text-blue">#Our success</span>
+            </h6>
+            <div class="hidden lg:flex items-center gap-3">
+                <button id="testimonials-prev"
+                    class="hover:bg-purple bg-white hover:text-white text-black px-5 border py-3 flex items-center gap-3 rounded-md text-base font-medium">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5" />
+                    </svg>
+                </button>
+                <button id="testimonials-next"
+                    class="hover:bg-purple bg-white hover:text-white text-black px-5 border py-3 flex items-center gap-3 rounded-md text-base font-medium">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <!-- Splide Container -->
+        <div id="testimonial-slider" class="splide mt-10 w-full container px-4">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <li class="splide__slide">
+                        <div class="border border-gray-200 bg-white rounded-lg p-6 space-y-4">
+                            <img src="./assets/images/profile1.png" class="w-10 h-10 rounded-full" alt="Profile" />
+                            <h6 class="text-base font-semibold text-dark-gray">
+                                On first project I felt it was a mess, then later it turned
+                                into great details for me.
+                            </h6>
+                            <p class="text-sm text-gray-600">
+                                “ Citae condim acentum ornare velit elite habitantna feugiat
+                                libero purus amet emen apscing tortor suscipit aliquam
+                                vulputate. ”
+                            </p>
+                            <p class="text-sm font-semibold text-dark-gray">Cecil Sims</p>
+                            <p class="text-xs text-gray-500">7th Standard, Rome, Italy</p>
+                        </div>
+                    </li>
+                    <li class="splide__slide">
+                        <div class="border border-gray-200 bg-white rounded-lg p-6 space-y-4">
+                            <img src="./assets/images/profile1.png" class="w-10 h-10 rounded-full" alt="Profile" />
+                            <h6 class="text-base font-semibold text-dark-gray">
+                                On first project I felt it was a mess, then later it turned
+                                into great details for me.
+                            </h6>
+                            <p class="text-sm text-gray-600">
+                                “ Citae condim acentum ornare velit elite habitantna feugiat
+                                libero purus amet emen apscing tortor suscipit aliquam
+                                vulputate. ”
+                            </p>
+                            <p class="text-sm font-semibold text-dark-gray">Cecil Sims</p>
+                            <p class="text-xs text-gray-500">7th Standard, Rome, Italy</p>
+                        </div>
+                    </li>
+
+                    <li class="splide__slide">
+                        <div class="border border-gray-200 bg-white rounded-lg p-6 space-y-4">
+                            <img src="./assets/images/profile1.png" class="w-10 h-10 rounded-full" alt="Profile" />
+                            <h6 class="text-base font-semibold text-dark-gray">
+                                On first project I felt it was a mess, then later it turned
+                                into great details for me.
+                            </h6>
+                            <p class="text-sm text-gray-600">
+                                “ Citae condim acentum ornare velit elite habitantna feugiat
+                                libero purus amet emen apscing tortor suscipit aliquam
+                                vulputate. ”
+                            </p>
+                            <p class="text-sm font-semibold text-dark-gray">Cecil Sims</p>
+                            <p class="text-xs text-gray-500">7th Standard, Rome, Italy</p>
+                        </div>
+                    </li>
+
+                    <li class="splide__slide">
+                        <div class="border border-gray-200 bg-white rounded-lg p-6 space-y-4">
+                            <img src="./assets/images/profile1.png" class="w-10 h-10 rounded-full" alt="Profile" />
+                            <h6 class="text-base font-semibold text-dark-gray">
+                                On first project I felt it was a mess, then later it turned
+                                into great details for me.
+                            </h6>
+                            <p class="text-sm text-gray-600">
+                                “ Citae condim acentum ornare velit elite habitantna feugiat
+                                libero purus amet emen apscing tortor suscipit aliquam
+                                vulputate. ”
+                            </p>
+                            <p class="text-sm font-semibold text-dark-gray">Cecil Sims</p>
+                            <p class="text-xs text-gray-500">7th Standard, Rome, Italy</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- success stories end -->
+
+    <!-- instructors -->
+    <section class="px-4 mt-20 md:px-10 flex flex-col items-center lg:px-40 my-16">
+        <div class="flex flex-col items-center gap-4 text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="54" height="10" viewBox="0 0 54 10" fill="none">
+                <path d="M39.5 10C35.6 10 33.5 8 31.9 6.4..." fill="#F97316" />
+            </svg>
+            <p class="text-[22px] font-medium text-dark-gray">
+                Our featured instructors
+            </p>
+            <h6 class="text-4xl font-semibold text-dark-gray">
+                Highly qualified professionals
+            </h6>
+            <p class="text-sm text-dark-gray max-w-3xl">
+                Meet our top-rated instructors with extensive knowledge and excellent
+                reviews from students across the country.
+            </p>
+        </div>
+
+        <!-- Splide Slider -->
+        <!-- Instructor Slider -->
+        <div id="instructor-splide" class="splide mt-10 w-full container">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <!-- Instructor 1 -->
+                    <li class="splide__slide">
+                        <div class="flex flex-col justify-between border-gray-200 rounded-lg border items-start gap-4">
+                            <img src="./assets/images/professional1.jpg" alt="Profile" />
+                            <div class="flex flex-col items-start gap-2 w-full px-4 p-2">
+                                <div class="flex gap-2 items-center">
+                                    <img src="./assets/images/profile1.png" class="w-8 h-8 rounded-full"
+                                        alt="Profile" />
+                                    <div>
+                                        <h6 class="text-xs font-semibold text-dark-gray flex items-center gap-2">
+                                            Arianne Kearns
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="size-3 stroke-green-400"
+                                                fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                            </svg>
+                                        </h6>
+                                        <p class="text-xs text-gray-500">Charlotte, OK</p>
+                                    </div>
+                                </div>
+                                <ul class="w-full space-y-2">
+                                    <li class="flex justify-between text-xs text-gray-500">
+                                        <span>Starting from</span><span
+                                            class="text-dark-gray font-medium">$69.00/hr</span>
+                                    </li>
+                                    <li class="flex justify-between text-xs text-gray-500">
+                                        <span>Mobile</span><span class="text-dark-gray font-medium">+1234567890</span>
+                                    </li>
+                                    <li class="flex justify-between text-xs text-gray-500">
+                                        <span>WhatsApp</span><span class="text-dark-gray font-medium">+1234567890</span>
+                                    </li>
+                                    <li class="flex justify-between text-xs text-gray-500">
+                                        <span>Qualification</span><span class="text-dark-gray font-medium">MBBs</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flex justify-between border-t w-full border-gray-200 px-4 py-2">
+                                <span class="flex gap-2 items-center text-xs">
+                                    5.0
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="size-4 fill-yellow stroke-yellow"
+                                        viewBox="0 0 24 24" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                    (07)
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Instructor 2 -->
+                    <li class="splide__slide">
+                        <div class="flex flex-col justify-between border-gray-200 rounded-lg border items-start gap-4">
+                            <img src="./assets/images/professional2.jpg" alt="Profile" />
+                            <div class="flex flex-col items-start gap-2 w-full px-4 p-2">
+                                <div class="flex gap-2 items-center">
+                                    <img src="./assets/images/profile2.png" class="w-8 h-8 rounded-full"
+                                        alt="Profile" />
+                                    <div>
+                                        <h6 class="text-xs font-semibold text-dark-gray flex items-center gap-2">
+                                            Samuel Ortiz
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="size-3 stroke-green-400"
+                                                fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                            </svg>
+                                        </h6>
+                                        <p class="text-xs text-gray-500">Austin, TX</p>
+                                    </div>
+                                </div>
+                                <ul class="w-full space-y-2">
+                                    <li class="flex justify-between text-xs text-gray-500">
+                                        <span>Starting from</span><span
+                                            class="text-dark-gray font-medium">$72.00/hr</span>
+                                    </li>
+                                    <li class="flex justify-between text-xs text-gray-500">
+                                        <span>Mobile</span><span class="text-dark-gray font-medium">+1987654321</span>
+                                    </li>
+                                    <li class="flex justify-between text-xs text-gray-500">
+                                        <span>WhatsApp</span><span class="text-dark-gray font-medium">+1987654321</span>
+                                    </li>
+                                    <li class="flex justify-between text-xs text-gray-500">
+                                        <span>Qualification</span><span class="text-dark-gray font-medium">PhD
+                                            Biology</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flex justify-between border-t w-full border-gray-200 px-4 py-2">
+                                <span class="flex gap-2 items-center text-xs">4.8
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="size-4 fill-yellow stroke-yellow"
+                                        viewBox="0 0 24 24" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                    (12)
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Repeat same block for Instructors 3, 4, and 5 with dummy data -->
+                    <!-- Instructor 3 -->
+                    <li class="splide__slide">
+                        <div class="flex flex-col justify-between border-gray-200 rounded-lg border items-start gap-4">
+                            <img src="./assets/images/professional3.jpg" alt="Profile" />
+                            <div class="flex flex-col items-start gap-2 w-full px-4 p-2">
+                                <div class="flex gap-2 items-center">
+                                    <img src="./assets/images/profile2.png" class="w-8 h-8 rounded-full"
+                                        alt="Profile" />
+                                    <div>
+                                        <h6 class="text-xs font-semibold text-dark-gray flex items-center gap-2">
+                                            Samuel Ortiz
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="size-3 stroke-green-400"
+                                                fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                            </svg>
+                                        </h6>
+                                        <p class="text-xs text-gray-500">Austin, TX</p>
+                                    </div>
+                                </div>
+                                <ul class="w-full space-y-2">
+                                    <li class="flex justify-between text-xs text-gray-500">
+                                        <span>Starting from</span><span
+                                            class="text-dark-gray font-medium">$72.00/hr</span>
+                                    </li>
+                                    <li class="flex justify-between text-xs text-gray-500">
+                                        <span>Mobile</span><span class="text-dark-gray font-medium">+1987654321</span>
+                                    </li>
+                                    <li class="flex justify-between text-xs text-gray-500">
+                                        <span>WhatsApp</span><span class="text-dark-gray font-medium">+1987654321</span>
+                                    </li>
+                                    <li class="flex justify-between text-xs text-gray-500">
+                                        <span>Qualification</span><span class="text-dark-gray font-medium">PhD
+                                            Biology</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flex justify-between border-t w-full border-gray-200 px-4 py-2">
+                                <span class="flex gap-2 items-center text-xs">4.8
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="size-4 fill-yellow stroke-yellow"
+                                        viewBox="0 0 24 24" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                    (12)
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Instructor 4 -->
+                    <li class="splide__slide">
+                        <div class="flex flex-col justify-between border-gray-200 rounded-lg border items-start gap-4">
+                            <img src="./assets/images/professional4.jpg" alt="Profile" />
+                            <div class="flex flex-col items-start gap-2 w-full px-4 p-2">
+                                <div class="flex gap-2 items-center">
+                                    <img src="./assets/images/profile2.png" class="w-8 h-8 rounded-full"
+                                        alt="Profile" />
+                                    <div>
+                                        <h6 class="text-xs font-semibold text-dark-gray flex items-center gap-2">
+                                            Samuel Ortiz
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="size-3 stroke-green-400"
+                                                fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                            </svg>
+                                        </h6>
+                                        <p class="text-xs text-gray-500">Austin, TX</p>
+                                    </div>
+                                </div>
+                                <ul class="w-full space-y-2">
+                                    <li class="flex justify-between text-xs text-gray-500">
+                                        <span>Starting from</span><span
+                                            class="text-dark-gray font-medium">$72.00/hr</span>
+                                    </li>
+                                    <li class="flex justify-between text-xs text-gray-500">
+                                        <span>Mobile</span><span class="text-dark-gray font-medium">+1987654321</span>
+                                    </li>
+                                    <li class="flex justify-between text-xs text-gray-500">
+                                        <span>WhatsApp</span><span class="text-dark-gray font-medium">+1987654321</span>
+                                    </li>
+                                    <li class="flex justify-between text-xs text-gray-500">
+                                        <span>Qualification</span><span class="text-dark-gray font-medium">PhD
+                                            Biology</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flex justify-between border-t w-full border-gray-200 px-4 py-2">
+                                <span class="flex gap-2 items-center text-xs">4.8
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="size-4 fill-yellow stroke-yellow"
+                                        viewBox="0 0 24 24" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                    (12)
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Instructor 5 -->
+                    <li class="splide__slide">
+                        <div class="flex flex-col justify-between border-gray-200 rounded-lg border items-start gap-4">
+                            <img src="./assets/images/professional5.jpg" alt="Profile" />
+                            <div class="flex flex-col items-start gap-2 w-full px-4 p-2">
+                                <div class="flex gap-2 items-center">
+                                    <img src="./assets/images/profile2.png" class="w-8 h-8 rounded-full"
+                                        alt="Profile" />
+                                    <div>
+                                        <h6 class="text-xs font-semibold text-dark-gray flex items-center gap-2">
+                                            Samuel Ortiz
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="size-3 stroke-green-400"
+                                                fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                            </svg>
+                                        </h6>
+                                        <p class="text-xs text-gray-500">Austin, TX</p>
+                                    </div>
+                                </div>
+                                <ul class="w-full space-y-2">
+                                    <li class="flex justify-between text-xs text-gray-500">
+                                        <span>Starting from</span><span
+                                            class="text-dark-gray font-medium">$72.00/hr</span>
+                                    </li>
+                                    <li class="flex justify-between text-xs text-gray-500">
+                                        <span>Mobile</span><span class="text-dark-gray font-medium">+1987654321</span>
+                                    </li>
+                                    <li class="flex justify-between text-xs text-gray-500">
+                                        <span>WhatsApp</span><span class="text-dark-gray font-medium">+1987654321</span>
+                                    </li>
+                                    <li class="flex justify-between text-xs text-gray-500">
+                                        <span>Qualification</span><span class="text-dark-gray font-medium">PhD
+                                            Biology</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flex justify-between border-t w-full border-gray-200 px-4 py-2">
+                                <span class="flex gap-2 items-center text-xs">4.8
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="size-4 fill-yellow stroke-yellow"
+                                        viewBox="0 0 24 24" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                    </svg>
+                                    (12)
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Custom pagination container -->
+            <div id="instructor-pagination-container" class="mt-10 flex justify-center"></div>
+        </div>
+    </section>
+    <!-- instructors end -->
+
+    <!-- collection -->
+    <section class="bg-light-gray relative flex flex-col items-center py-10 lg:px-40">
+        <img src="./assets/images/wave-top-left.png" class="absolute top-0 right-0 h-[500px] pointer-events-none" />
+        <img src="./assets/images/shape-bottom-left.png"
+            class="absolute bottom-0 left-0 h-[400px] pointer-events-none" />
+
+        <div class="container mx-auto p-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="54" height="10" viewBox="0 0 54 10" fill="none">
+                <path
+                    d="M39.5 10C35.6 10 33.5 8 31.9 6.4C30.4 5 29.3 4 27 4C24.7 4 23.6 5 22.1 6.4C20.5 8 18.4 10 14.5 10C10.6 10 8.5 8 6.9 6.4C5.4 5 4.3 4 2 4C0.9 4 0 3.1 0 2C0 0.9 0.9 0 2 0C5.9 0 8 2 9.6 3.6C11.1 5 12.2 6 14.5 6C16.8 6 17.9 5 19.4 3.6C21 2 23.1 0 27 0C30.9 0 33 2 34.6 3.6C36.1 5 37.2 6 39.5 6C41.8 6 42.9 5 44.4 3.6C46 2 48.1 0 52 0C53.1 0 54 0.9 54 2C54 3.1 53.1 4 52 4C49.7 4 48.6 5 47.1 6.4C45.5 8 43.4 10 39.5 10Z"
+                    fill="#F97316" />
+            </svg>
+            <p class="text-xl mt-6 font-medium text-dark-gray">
+                Explore from our huge collection
+            </p>
+            <h6 class="text-4xl w-full lg:w-2/3 font-bold mb-3 text-dark-gray">
+                Search top notch tutors by grades
+            </h6>
+            <div class="grid grid-cols-1 mt-14 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Basic & Primary Column -->
+                <div class="flex flex-col">
+                    <h3 class="text-xl font-semibold mb-4 text-dark-gray">Baisc & primary</h3>
+                    <ul>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Computer</span>
+                            </div>
+                            <span class="text-gray-500">(46)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Drawing</span>
+                            </div>
+                            <span class="text-gray-500">(46)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">English</span>
+                            </div>
+                            <span class="text-gray-500">(46)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Math</span>
+                            </div>
+                            <span class="text-gray-500">(46)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Science</span>
+                            </div>
+                            <span class="text-gray-500">(46)</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-blue-600 hover:underline mt-4">Explore all</a>
+                </div>
+
+                <!-- O & A-Levels Column -->
+                <div class="flex flex-col">
+                    <h3 class="text-xl font-semibold mb-4 text-dark-gray">O & A-Levels</h3>
+                    <ul>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Accounting</span>
+                            </div>
+                            <span class="text-gray-500">(46)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Art & Design</span>
+                            </div>
+                            <span class="text-gray-500">(46)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Biology</span>
+                            </div>
+                            <span class="text-gray-500">(46)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Business studies</span>
+                            </div>
+                            <span class="text-gray-500">(46)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Chemistry</span>
+                            </div>
+                            <span class="text-gray-500">(46)</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-blue-600 hover:underline mt-4">Explore all</a>
+                </div>
+
+                <!-- Graduation Column -->
+                <div class="flex flex-col">
+                    <h3 class="text-xl font-semibold mb-4 text-dark-gray">Graduation</h3>
+                    <ul>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Accounting</span>
+                            </div>
+                            <span class="text-gray-500">(19)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Advertising</span>
+                            </div>
+                            <span class="text-gray-500">(26)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Agriculture</span>
+                            </div>
+                            <span class="text-gray-500">(14)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Architecture</span>
+                            </div>
+                            <span class="text-gray-500">(18)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Astronomy</span>
+                            </div>
+                            <span class="text-gray-500">(24)</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-blue-600 hover:underline mt-4">Explore all</a>
+                </div>
+
+                <!-- Arts & Music Column -->
+                <div class="flex flex-col">
+                    <h3 class="text-xl font-semibold mb-4 text-dark-gray">Arts & music</h3>
+                    <ul>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Acting</span>
+                            </div>
+                            <span class="text-gray-500">(21)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Audio Production</span>
+                            </div>
+                            <span class="text-gray-500">(20)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Composition</span>
+                            </div>
+                            <span class="text-gray-500">(20)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Dance</span>
+                            </div>
+                            <span class="text-gray-500">(18)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Drums</span>
+                            </div>
+                            <span class="text-gray-500">(19)</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-blue-600 hover:underline mt-4">Explore all</a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
+                <!-- Health & Sports Column -->
+                <div class="flex flex-col">
+                    <h3 class="text-xl font-semibold mb-4 text-dark-gray">Health & sports</h3>
+                    <ul>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Aerobics</span>
+                            </div>
+                            <span class="text-gray-500">(20)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Athletics</span>
+                            </div>
+                            <span class="text-gray-500">(17)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Badminton</span>
+                            </div>
+                            <span class="text-gray-500">(16)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Baseball</span>
+                            </div>
+                            <span class="text-gray-500">(14)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Basketball</span>
+                            </div>
+                            <span class="text-gray-500">(22)</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-blue-600 hover:underline mt-4">Explore all</a>
+                </div>
+
+                <!-- Spoken Languages Column -->
+                <div class="flex flex-col">
+                    <h3 class="text-xl font-semibold mb-4 text-dark-gray">Spoken languages</h3>
+                    <ul>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Arabic</span>
+                            </div>
+                            <span class="text-gray-500">(39)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Chinese</span>
+                            </div>
+                            <span class="text-gray-500">(40)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Czech</span>
+                            </div>
+                            <span class="text-gray-500">(42)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Danish</span>
+                            </div>
+                            <span class="text-gray-500">(37)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Dutch</span>
+                            </div>
+                            <span class="text-gray-500">(42)</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-blue-600 hover:underline mt-4">Explore all</a>
+                </div>
+
+                <!-- Short Courses Column -->
+                <div class="flex flex-col">
+                    <h3 class="text-xl font-semibold mb-4 text-dark-gray">Short courses</h3>
+                    <ul>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Accountancy</span>
+                            </div>
+                            <span class="text-gray-500">(46)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Agriculture</span>
+                            </div>
+                            <span class="text-gray-500">(46)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Architecture</span>
+                            </div>
+                            <span class="text-gray-500">(46)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Astrology</span>
+                            </div>
+                            <span class="text-gray-500">(46)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Aviation</span>
+                            </div>
+                            <span class="text-gray-500">(46)</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-blue-600 hover:underline mt-4">Explore all</a>
+                </div>
+
+                <!-- IT & Programming Column -->
+                <div class="flex flex-col">
+                    <h3 class="text-xl font-semibold mb-4 text-dark-gray">IT & programing</h3>
+                    <ul>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Adobe Illustrator</span>
+                            </div>
+                            <span class="text-gray-500">(46)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Adobe Photoshop</span>
+                            </div>
+                            <span class="text-gray-500">(46)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Android development</span>
+                            </div>
+                            <span class="text-gray-500">(46)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">AutoCAD</span>
+                            </div>
+                            <span class="text-gray-500">(46)</span>
+                        </li>
+                        <li class="flex items-center justify-between py-2 border-b border-gray-200">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-700">Database</span>
+                            </div>
+                            <span class="text-gray-500">(46)</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-blue-600 hover:underline mt-4">Explore all</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- collection end -->
+    <!-- footer -->
+    <footer class="bg-purple-dark text-white py-12 px-6 md:px-16 text-sm">
+        <div class="max-w-7xl mx-auto space-y-12">
+            <!-- Row 1: Logo + Contact -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="160" height="36" viewBox="0 0 160 36" fill="none"
+                            class="amsvglogo replaced-svg">
+                            <path d="M17.7273 14.4H14.1819C6.34608 14.4 0 7.9563 0 0H17.7273V14.4Z" fill="#F05B8A">
+                            </path>
+                            <path
+                                d="M31.909 14.3999V35.9999C24.0732 35.9999 17.7271 29.5562 17.7271 21.5999V14.3999H31.909Z"
+                                fill="#FFC649"></path>
+                            <path d="M31.909 14.4H17.7271V0L31.909 14.4Z" fill="#F04A2D"></path>
+                            <path
+                                d="M30.3501 6.78655L25.2256 1.58319C24.6496 0.998319 25.0568 0 25.8711 0H30.9857C31.4922 0 31.8994 0.413445 31.8994 0.927731V6.12101C31.9093 6.95798 30.9261 7.37143 30.3501 6.78655Z"
+                                fill="#FFC649"></path>
+                            <path d="M65.0983 4.90918V9.96953H57.5706V30.5776H52.5277V9.96953H45V4.90918H65.0983Z"
+                                fill="white"></path>
+                            <path
+                                d="M67.5393 21.5753V12.243H72.5821V21.502C72.5821 22.3698 72.7587 23.1582 73.112 23.8672C73.4652 24.5761 73.9586 25.1445 74.592 25.5723C75.2375 25.9879 75.9806 26.1957 76.8211 26.1957C77.6615 26.1957 78.368 25.9879 78.9405 25.5723C79.5252 25.1445 79.9698 24.5761 80.2743 23.8672C80.5788 23.1582 80.7311 22.3698 80.7311 21.502V12.243H85.774V30.5776H80.7311V28.6892C80.1586 29.3859 79.4704 29.9604 78.6664 30.4126C77.8747 30.8649 76.9672 31.091 75.944 31.091C74.2144 31.091 72.7222 30.6632 71.4676 29.8076C70.2251 28.952 69.2629 27.803 68.5807 26.3607C67.8986 24.9183 67.5514 23.3232 67.5393 21.5753Z"
+                                fill="white"></path>
+                            <path
+                                d="M100.286 17.3034H96.9976V30.5776H91.9548V17.3034H89.4333V12.243H91.9548V6.48596H96.9976V12.243H100.286V17.3034Z"
+                                fill="white"></path>
+                            <path
+                                d="M103.769 21.5753V12.243H108.812V21.502C108.812 22.3698 108.989 23.1582 109.342 23.8672C109.695 24.5761 110.188 25.1445 110.822 25.5723C111.467 25.9879 112.21 26.1957 113.051 26.1957C113.891 26.1957 114.598 25.9879 115.17 25.5723C115.755 25.1445 116.2 24.5761 116.504 23.8672C116.809 23.1582 116.961 22.3698 116.961 21.502V12.243H122.004V30.5776H116.961V28.6892C116.388 29.3859 115.7 29.9604 114.896 30.4126C114.105 30.8649 113.197 31.091 112.174 31.091C110.444 31.091 108.952 30.6632 107.697 29.8076C106.455 28.952 105.493 27.803 104.811 26.3607C104.128 24.9183 103.781 23.3232 103.769 21.5753Z"
+                                fill="white"></path>
+                            <path
+                                d="M137.96 17.4134C137.631 17.1689 137.265 16.9795 136.863 16.845C136.461 16.6983 136.017 16.625 135.53 16.625C134.701 16.625 133.995 16.8389 133.41 17.2667C132.838 17.6823 132.399 18.2446 132.095 18.9535C131.802 19.6624 131.656 20.4508 131.656 21.3187V30.5776H126.577V12.243H131.62V14.1315C132.204 13.4226 132.892 12.8542 133.684 12.4264C134.488 11.9863 135.402 11.7663 136.425 11.7663C136.839 11.7663 137.241 11.7785 137.631 11.803C138.021 11.8152 138.398 11.8763 138.764 11.9863L137.96 17.4134Z"
+                                fill="white"></path>
+                            <path
+                                d="M159.545 21.2086V30.5776H154.503V21.282C154.503 20.4264 154.326 19.6441 153.973 18.9352C153.619 18.2262 153.12 17.6578 152.474 17.23C151.841 16.8022 151.104 16.5883 150.264 16.5883C149.435 16.5883 148.729 16.8022 148.144 17.23C147.56 17.6578 147.115 18.2262 146.81 18.9352C146.506 19.6441 146.354 20.4264 146.354 21.282V30.5776H141.311V12.243H146.354V14.1315C146.938 13.4103 147.627 12.8297 148.418 12.3897C149.222 11.9497 150.136 11.7297 151.159 11.7297C152.876 11.7297 154.356 12.1575 155.599 13.0131C156.853 13.8687 157.822 15.0177 158.504 16.46C159.186 17.8901 159.533 19.473 159.545 21.2086Z"
+                                fill="white"></path>
+                        </svg>
+                    </div>
+                    <p class="text-gray-300 mb-4 font-medium">
+                        Accusamus etidio dignissimos ducimus blanditiis praesentium
+                        volupta eleniti atquete corrupti quolores etmquasa molestias
+                        epturi sinteam occaecati cupiditate non providente mikume
+                        molareshe.
+                    </p>
+                    <div class="flex gap-4 text-2xl text-gray-400">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                        <a href="#"><i class="fab fa-twitch"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4 text-lg">
+                        Feel free to share your question
+                    </h4>
+                    <ul class="text-gray-300 space-y-2">
+                        <li>
+                            📞 +62 877 77263549
+                            <span class="text-xs">(Mon to Sun 9am - 11pm GMT)</span>
+                        </li>
+                        <li>📧 hello@youremailid.co.uk</li>
+                        <li>📠 +62 811 09998263</li>
+                        <li>
+                            💬 (+33)7 75 55 9375
+                            <span class="text-xs">(Mon to Sun 9am - 11pm GMT)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-gray-600" />
+
+            <!-- Row 2: Categories + Classes -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h4 class="text-white font-semibold mb-4 text-lg">
+                        Explore tutors by categories
+                    </h4>
+                    <ul class="text-gray-300 space-y-1 columns-2 px-4">
+                        <li class="font-medium list-disc">General mathematics</li>
+                        <li class="font-medium list-disc">English communications</li>
+                        <li class="font-medium list-disc">Social sciences</li>
+                        <li class="font-medium list-disc">Student success skills</li>
+                        <li class="font-medium list-disc">ACT® test prep</li>
+                        <li class="font-medium list-disc">Advanced placement</li>
+                        <li class="font-medium list-disc">Content writing</li>
+                        <li class="font-medium list-disc">Maketing business</li>
+                        <li class="font-medium list-disc">Advance science play</li>
+                        <li class="font-medium list-disc">SAT prep</li>
+                        <li class="font-medium list-disc">Grooming technology</li>
+                        <li class="font-medium list-disc">World languages</li>
+                        <li class="font-medium list-disc">Career support</li>
+                        <li class="font-medium list-disc">International support</li>
+                        <li class="font-medium list-disc">
+                            <a href="#" class="text-blue-400">Explore all</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4 text-lg">
+                        Online classes
+                    </h4>
+                    <ul class="text-gray-300 space-y-1 columns-2 px-4">
+                        <li class="font-medium list-disc">Online science classes</li>
+                        <li class="font-medium list-disc">Online computer classes</li>
+                        <li class="font-medium list-disc">Online statistic classes</li>
+                        <li class="font-medium list-disc">Online java classes</li>
+                        <li class="font-medium list-disc">Online C programming</li>
+                        <li class="font-medium list-disc">Online mathemetic classes</li>
+                        <li class="font-medium list-disc">Online geographic classes</li>
+                        <li class="font-medium list-disc">Online islamiat classes</li>
+                        <li class="font-medium list-disc">IBM python Analyst</li>
+                        <li class="font-medium list-disc">
+                            <a href="#" class="text-blue-400">Explore all</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-gray-600" />
+
+            <!-- Row 3: Useful links + Apps + Newsletter -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                <!-- Useful Links -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4 text-lg">Useful links</h4>
+                    <ul class="text-gray-300 space-y-1 columns-2 font-medium list-disc px-4">
+                        <li class="font-medium list-disc">About</li>
+                        <li class="font-medium list-disc">Courses</li>
+                        <li class="font-medium list-disc">Join our community</li>
+                        <li class="font-medium list-disc">How it work</li>
+                        <li class="font-medium list-disc">Online classes</li>
+                        <li class="font-medium list-disc">Programs & degrees</li>
+                        <li class="font-medium list-disc">Sign in now</li>
+                        <li class="font-medium list-disc">F.A.Q</li>
+                    </ul>
+                </div>
+
+                <!-- Mobile App -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Get mobile app</h4>
+                    <p class="text-gray-300 mb-4 font-medium">
+                        Take education on the go. Get our mobile app for FREE! on your
+                        Apple and Android devices
+                    </p>
+                    <div class="flex gap-4">
+                        <img src="/assets/images/google-play.png" alt="Google Play" class="h-10" />
+                        <img src="/assets/images/app-store.png" alt="App Store" class="h-10" />
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Signup for newsletter</h4>
+                    <p class="text-gray-300 mb-4 font-medium">
+                        Corrupti quolores etmquasa molestias etpurtite sinteam occaecati
+                        amet cupiditate mikume molareshe.
+                    </p>
+                    <div class="flex">
+                        <input type="email" placeholder="Enter your email"
+                            class="bg-[#36174e] text-white px-4 py-2 rounded-l w-full outline-none" />
+                        <button class="bg-orange-500 px-4 rounded-r">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div
+                class="mt-8 border-t border-gray-600 pt-6 flex flex-col md:flex-row justify-between items-center text-gray-400 text-xs">
+                <p>© 1994 - 2022 All Rights Reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white font-mediums">Careers</a>
+                    <a href="#" class="hover:text-white font-mediums">Terms of use</a>
+                    <a href="#" class="hover:text-white font-mediums">Privacy policy</a>
+                    <a href="#" class="hover:text-white font-mediums">Cookie notice</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer end -->
+</body>
+<script src="./particles.js"></script>
+<script>
+    particlesJS.load('particles-js', 'assets/particle.json', function() {
+    console.log('callback - particles.js config loaded');
+  });
+</script>
+<script src="
+https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
+"></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-autoplay@4/dist/js/splide-extension-autoplay.min.js"></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-intersection@4/dist/js/splide-extension-intersection.min.js"></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@latest/dist/js/splide-extension-auto-scroll.min.js"></script>
+<script>
+    const menuButton = document.getElementById("menu-button");
+    const dropdownMenu = menuButton.parentElement.nextElementSibling;
+
+    menuButton.addEventListener("click", () => {
+        dropdownMenu.classList.toggle("hidden");
+    });
+
+    // Optional: Close menu if clicked outside
+    document.addEventListener("click", (e) => {
+        if (!menuButton.closest(".relative").contains(e.target)) {
+            dropdownMenu.classList.add("hidden");
+        }
+    });
+    const toggle = document.getElementById("dropdownToggle");
+    const menu = document.getElementById("dropdownMenu");
+
+    toggle.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+    });
+
+    // Optional: close dropdown if clicked outside
+    window.addEventListener("click", (e) => {
+        if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+            menu.classList.add("hidden");
+        }
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const toggleBtn = document.querySelector(
+            '[data-collapse-toggle="navbar-default"]'
+        );
+        const navMenu = document.getElementById("navbar-default");
+
+        toggleBtn?.addEventListener("click", () => {
+            navMenu.classList.toggle("hidden");
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var splide = new Splide("#category-slider", {
+            type: "loop",
+            perPage: 5,
+            gap: "1rem",
+            pagination: true,
+            arrows: false,
+            pauseOnHover: true,
+            breakpoints: {
+                1024: { perPage: 3 },
+                640: { perPage: 2 },
+            },
+            autoScroll: {
+                speed: 2,
+                pauseOnHover: true,
+                pauseOnFocus: false,
+            },
+        }).mount({ AutoScroll: window.splide.Extensions.AutoScroll });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const splide = new Splide("#testimonial-slider", {
+            type: "loop",
+            perPage: 3,
+            move: 1,
+            gap: "1.5rem",
+            autoplay: true,
+            interval: 2000,
+            pagination: false,
+            arrows: false,
+            breakpoints: {
+                1024: { perPage: 2 },
+                640: { perPage: 1 },
+            },
+        });
+
+        splide.mount();
+
+        const prevBtn = document.getElementById("testimonials-prev");
+        const nextBtn = document.getElementById("testimonials-next");
+
+        prevBtn.addEventListener("click", () => splide.go("<"));
+        nextBtn.addEventListener("click", () => splide.go(">"));
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const isMobile = window.innerWidth <= 640;
+
+        const splide = new Splide("#instructor-splide", {
+            type: "loop",
+            perPage: 4,
+            gap: "1rem",
+            arrows: false,
+            breakpoints: {
+                1024: { perPage: 2 },
+                640: { perPage: 1 },
+            },
+            autoplay: isMobile ? true : false,
+            interval: 2000,
+            ...(!isMobile &&
+            {
+                autoScroll: {
+                    speed: 2,
+                    pauseOnHover: true,
+                    pauseOnFocus: false,
+                },
+            }),
+        });
+
+        const mountOptions = isMobile ? {} : { AutoScroll: window.splide.Extensions.AutoScroll };
+        splide.mount(mountOptions);
+    });
+</script>
+
+
+</html>
