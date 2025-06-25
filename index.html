@@ -393,7 +393,8 @@
         <div
             class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-10 lg:px-0 pb-16 w-full container z-10">
             <!-- Card -->
-            <div class="bg-white flex flex-col gap-5 justify-center items-center p-8 rounded-md">
+            <div
+                class="bg-white flex flex-col gap-5 justify-center items-center p-8 rounded-md hover:shadow-lg hover:-translate-y-1 transition duration-300 ease-in-out cursor-pointer">
                 <div class="bg-light-gray p-5 rounded-full">
                     <img src="./assets/images/success1.png" class="size-20" />
                 </div>
@@ -403,18 +404,22 @@
                 </p>
             </div>
 
-            <!-- Repeat as needed -->
-            <div class="bg-white flex flex-col gap-5 justify-center items-center p-8 rounded-md">
-                <div class="bg-light-gray p-5 rounded-full">
+            <div class="bg-white flex flex-col gap-5 justify-center items-center p-8 rounded-md 
+            hover:shadow-lg hover:-translate-y-1 transition duration-300 ease-in-out cursor-pointer">
+
+                <div class="bg-light-gray p-5 rounded-full transform transition duration-300 hover:scale-110">
                     <img src="./assets/images/success2.png" class="size-20" />
                 </div>
+
                 <h6 class="text-2xl font-semibold">560,616+</h6>
+
                 <p class="text-center">
                     Courses available for verified and top tutors
                 </p>
             </div>
 
-            <div class="bg-white flex flex-col gap-5 justify-center items-center p-8 rounded-md">
+
+            <div class="bg-white flex flex-col gap-5 justify-center items-center p-8 rounded-md hover:shadow-lg hover:-translate-y-1 transition duration-300 ease-in-out cursor-pointer">
                 <div class="bg-light-gray p-5 rounded-full">
                     <img src="./assets/images/success3.png" class="size-20" />
                 </div>
@@ -424,7 +429,7 @@
                 </p>
             </div>
 
-            <div class="bg-white flex flex-col gap-5 justify-center items-center p-8 rounded-md">
+            <div class="bg-white flex flex-col gap-5 justify-center items-center p-8 rounded-md hover:shadow-lg hover:-translate-y-1 transition duration-300 ease-in-out cursor-pointer">
                 <div class="bg-light-gray p-5 rounded-full">
                     <img src="./assets/images/success4.png" class="size-20" />
                 </div>
@@ -741,7 +746,7 @@
             <div class="splide__track">
                 <ul class="splide__list">
                     <!-- Instructor 1 -->
-                    <li class="splide__slide">
+                    <li class="splide__slide transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-gray-50 rounded-xl cursor-pointer">
                         <div class="flex flex-col justify-between border-gray-200 rounded-lg border items-start gap-4">
                             <img src="./assets/images/professional1.jpg" alt="Profile" />
                             <div class="flex flex-col items-start gap-2 w-full px-4 p-2">
@@ -792,7 +797,7 @@
                     </li>
 
                     <!-- Instructor 2 -->
-                    <li class="splide__slide">
+                    <li class="splide__slide transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-gray-50 rounded-xl cursor-pointer">
                         <div class="flex flex-col justify-between border-gray-200 rounded-lg border items-start gap-4">
                             <img src="./assets/images/professional2.jpg" alt="Profile" />
                             <div class="flex flex-col items-start gap-2 w-full px-4 p-2">
@@ -844,7 +849,7 @@
 
                     <!-- Repeat same block for Instructors 3, 4, and 5 with dummy data -->
                     <!-- Instructor 3 -->
-                    <li class="splide__slide">
+                    <li class="splide__slide transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-gray-50 rounded-xl cursor-pointer">
                         <div class="flex flex-col justify-between border-gray-200 rounded-lg border items-start gap-4">
                             <img src="./assets/images/professional3.jpg" alt="Profile" />
                             <div class="flex flex-col items-start gap-2 w-full px-4 p-2">
@@ -895,7 +900,7 @@
                     </li>
 
                     <!-- Instructor 4 -->
-                    <li class="splide__slide">
+                    <li class="splide__slide transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-gray-50 rounded-xl cursor-pointer">
                         <div class="flex flex-col justify-between border-gray-200 rounded-lg border items-start gap-4">
                             <img src="./assets/images/professional4.jpg" alt="Profile" />
                             <div class="flex flex-col items-start gap-2 w-full px-4 p-2">
@@ -946,7 +951,7 @@
                     </li>
 
                     <!-- Instructor 5 -->
-                    <li class="splide__slide">
+                    <li class="splide__slide transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-gray-50 rounded-xl cursor-pointer">
                         <div class="flex flex-col justify-between border-gray-200 rounded-lg border items-start gap-4">
                             <img src="./assets/images/professional5.jpg" alt="Profile" />
                             <div class="flex flex-col items-start gap-2 w-full px-4 p-2">
@@ -1035,7 +1040,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Computer</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Computer</span>
                             </div>
                             <span class="text-gray-500">(46)</span>
                         </li>
@@ -1047,7 +1052,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Drawing</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Drawing</span>
                             </div>
                             <span class="text-gray-500">(46)</span>
                         </li>
@@ -1059,7 +1064,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">English</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">English</span>
                             </div>
                             <span class="text-gray-500">(46)</span>
                         </li>
@@ -1071,7 +1076,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Math</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Math</span>
                             </div>
                             <span class="text-gray-500">(46)</span>
                         </li>
@@ -1083,7 +1088,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Science</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Science</span>
                             </div>
                             <span class="text-gray-500">(46)</span>
                         </li>
@@ -1103,7 +1108,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Accounting</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Accounting</span>
                             </div>
                             <span class="text-gray-500">(46)</span>
                         </li>
@@ -1115,7 +1120,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Art & Design</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Art & Design</span>
                             </div>
                             <span class="text-gray-500">(46)</span>
                         </li>
@@ -1127,7 +1132,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Biology</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Biology</span>
                             </div>
                             <span class="text-gray-500">(46)</span>
                         </li>
@@ -1139,7 +1144,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Business studies</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Business studies</span>
                             </div>
                             <span class="text-gray-500">(46)</span>
                         </li>
@@ -1151,7 +1156,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Chemistry</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Chemistry</span>
                             </div>
                             <span class="text-gray-500">(46)</span>
                         </li>
@@ -1171,7 +1176,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Accounting</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Accounting</span>
                             </div>
                             <span class="text-gray-500">(19)</span>
                         </li>
@@ -1183,7 +1188,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Advertising</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Advertising</span>
                             </div>
                             <span class="text-gray-500">(26)</span>
                         </li>
@@ -1195,7 +1200,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Agriculture</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Agriculture</span>
                             </div>
                             <span class="text-gray-500">(14)</span>
                         </li>
@@ -1207,7 +1212,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Architecture</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Architecture</span>
                             </div>
                             <span class="text-gray-500">(18)</span>
                         </li>
@@ -1219,7 +1224,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Astronomy</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Astronomy</span>
                             </div>
                             <span class="text-gray-500">(24)</span>
                         </li>
@@ -1239,7 +1244,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Acting</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Acting</span>
                             </div>
                             <span class="text-gray-500">(21)</span>
                         </li>
@@ -1251,7 +1256,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Audio Production</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Audio Production</span>
                             </div>
                             <span class="text-gray-500">(20)</span>
                         </li>
@@ -1263,7 +1268,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Composition</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Composition</span>
                             </div>
                             <span class="text-gray-500">(20)</span>
                         </li>
@@ -1275,7 +1280,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Dance</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Dance</span>
                             </div>
                             <span class="text-gray-500">(18)</span>
                         </li>
@@ -1287,7 +1292,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Drums</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Drums</span>
                             </div>
                             <span class="text-gray-500">(19)</span>
                         </li>
@@ -1309,7 +1314,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Aerobics</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Aerobics</span>
                             </div>
                             <span class="text-gray-500">(20)</span>
                         </li>
@@ -1321,7 +1326,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Athletics</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Athletics</span>
                             </div>
                             <span class="text-gray-500">(17)</span>
                         </li>
@@ -1333,7 +1338,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Badminton</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Badminton</span>
                             </div>
                             <span class="text-gray-500">(16)</span>
                         </li>
@@ -1345,7 +1350,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Baseball</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Baseball</span>
                             </div>
                             <span class="text-gray-500">(14)</span>
                         </li>
@@ -1357,7 +1362,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Basketball</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Basketball</span>
                             </div>
                             <span class="text-gray-500">(22)</span>
                         </li>
@@ -1377,7 +1382,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Arabic</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Arabic</span>
                             </div>
                             <span class="text-gray-500">(39)</span>
                         </li>
@@ -1389,7 +1394,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Chinese</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Chinese</span>
                             </div>
                             <span class="text-gray-500">(40)</span>
                         </li>
@@ -1401,7 +1406,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Czech</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Czech</span>
                             </div>
                             <span class="text-gray-500">(42)</span>
                         </li>
@@ -1413,7 +1418,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Danish</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Danish</span>
                             </div>
                             <span class="text-gray-500">(37)</span>
                         </li>
@@ -1425,7 +1430,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Dutch</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Dutch</span>
                             </div>
                             <span class="text-gray-500">(42)</span>
                         </li>
@@ -1445,7 +1450,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Accountancy</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Accountancy</span>
                             </div>
                             <span class="text-gray-500">(46)</span>
                         </li>
@@ -1457,7 +1462,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Agriculture</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Agriculture</span>
                             </div>
                             <span class="text-gray-500">(46)</span>
                         </li>
@@ -1469,7 +1474,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Architecture</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Architecture</span>
                             </div>
                             <span class="text-gray-500">(46)</span>
                         </li>
@@ -1481,7 +1486,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Astrology</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Astrology</span>
                             </div>
                             <span class="text-gray-500">(46)</span>
                         </li>
@@ -1493,7 +1498,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Aviation</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Aviation</span>
                             </div>
                             <span class="text-gray-500">(46)</span>
                         </li>
@@ -1513,7 +1518,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Adobe Illustrator</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Adobe Illustrator</span>
                             </div>
                             <span class="text-gray-500">(46)</span>
                         </li>
@@ -1525,7 +1530,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Adobe Photoshop</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Adobe Photoshop</span>
                             </div>
                             <span class="text-gray-500">(46)</span>
                         </li>
@@ -1537,7 +1542,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Android development</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Android development</span>
                             </div>
                             <span class="text-gray-500">(46)</span>
                         </li>
@@ -1549,7 +1554,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">AutoCAD</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">AutoCAD</span>
                             </div>
                             <span class="text-gray-500">(46)</span>
                         </li>
@@ -1561,7 +1566,7 @@
                                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <span class="text-gray-700">Database</span>
+                                <span class="text-gray-700 hover:text-blue-600 cursor-pointer">Database</span>
                             </div>
                             <span class="text-gray-500">(46)</span>
                         </li>
@@ -1572,6 +1577,7 @@
         </div>
     </section>
     <!-- collection end -->
+
     <!-- footer -->
     <footer class="bg-purple-dark text-white py-12 px-6 md:px-16 text-sm">
         <div class="max-w-7xl mx-auto space-y-12">
@@ -1757,9 +1763,9 @@
 </body>
 <script src="./particles.js"></script>
 <script>
-    particlesJS.load('particles-js', 'assets/particle.json', function() {
-    console.log('callback - particles.js config loaded');
-  });
+    particlesJS.load('particles-js', 'assets/particle.json', function () {
+        console.log('callback - particles.js config loaded');
+    });
 </script>
 <script src="
 https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
@@ -1770,6 +1776,8 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
     src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-intersection@4/dist/js/splide-extension-intersection.min.js"></script>
 <script
     src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@latest/dist/js/splide-extension-auto-scroll.min.js"></script>
+
+    
 <script>
     const menuButton = document.getElementById("menu-button");
     const dropdownMenu = menuButton.parentElement.nextElementSibling;

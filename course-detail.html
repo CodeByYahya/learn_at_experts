@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Course</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="./input.css" rel="stylesheet" />
+    <link href="./output.css" rel="stylesheet" />
+    <style>
+        /* Custom styles for the play button overlay to give it a more distinct look */
+        .play-button-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            /* Slightly larger */
+            height: 70px;
+            /* Slightly larger */
+            background-color: rgba(255, 255, 255, 0.95);
+            /* More opaque */
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            /* Deeper shadow */
+            transition: all 0.3s ease-in-out;
+            /* Smooth transition for hover effects */
+        }
+
+        .play-button-overlay:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+            /* Slight scale up on hover */
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+            /* Even deeper shadow on hover */
+        }
+
+        .play-button-overlay svg {
+            fill: #ea580c;
+            /* purple color */
+            transition: fill 0.3s ease-in-out;
+        }
+
+        .play-button-overlay:hover svg {
+            fill: #f97316;
+            /* Slightly brighter purple on hover */
+        }
+
+        /* Styles for active tab */
+        .tab-active {
+            background-color: var(--color-purple-200);
+            /* Lighter purple for active tab */
+            color: var(--color-purple-600);
+            /* purple text for active tab */
+            font-weight: 600;
+        }
+
+        /* Hidden content style */
+        .content-section {
+            display: none;
+            /* Initial state for animation */
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        /* Styles to animate content sections */
+        .content-section.animate-in {
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Keyframe for subtle hero element animation on load */
+        @keyframes fadeInSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-hero-item {
+            animation: fadeInSlideUp 0.8s ease-out forwards;
+            opacity: 0;
+            /* Ensures elements are hidden before animation starts */
+        }
+
+        /* Specific delays for hero elements */
+        .animate-hero-item:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        /* Star rating */
+        .animate-hero-item:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        /* Title */
+        .animate-hero-item:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        /* Description */
+        .animate-hero-item:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        /* Checklist */
+        .animate-hero-item:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        /* Buttons */
+    </style>
+</head>
+
+<body class="antialiased bg-light-gray">
+    <!-- navbar -->
+    <nav class="bg-white sticky top-0 z-50 py-6 px-2 lg:p-0 border-b border-gray-200 shadow-sm">
+        <div class="container flex flex-wrap items-center justify-between mx-auto">
+            <!-- Logo -->
+            <a href="/index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <svg xmlns="http://www.w3.org/2000/svg" width="133" height="30" viewBox="0 0 133 30" fill="none"
+                    class="amsvglogo replaced-svg">
+                    <path d="M14.7728 12H11.8182C5.2884 12 0 6.63025 0 0H14.7728V12Z" fill="#F05B8A"></path>
+                    <path d="M26.5908 12V30C20.061 30 14.7726 24.6303 14.7726 18V12H26.5908Z" fill="#FFC649"></path>
+                    <path d="M26.5908 12H14.7726V0L26.5908 12Z" fill="#F04A2D"></path>
+                    <path
+                        d="M25.2918 5.65546L21.0213 1.31933C20.5413 0.831933 20.8806 0 21.5593 0H25.8214C26.2435 0 26.5828 0.344538 26.5828 0.773109V5.10084C26.5911 5.79832 25.7718 6.14286 25.2918 5.65546Z"
+                        fill="#1C1C1C"></path>
+                    <path d="M54.2486 4.09091V8.30787H47.9755V25.4813H43.7731V8.30787H37.5V4.09091H54.2486Z"
+                        fill="#1C1C1C"></path>
+                    <path
+                        d="M56.2827 17.9794V10.2024H60.4851V17.9183C60.4851 18.6415 60.6323 19.2984 60.9267 19.8892C61.221 20.48 61.6321 20.9537 62.16 21.3102C62.6979 21.6565 63.3171 21.8296 64.0175 21.8296C64.7179 21.8296 65.3067 21.6565 65.7838 21.3102C66.271 20.9537 66.6415 20.48 66.8953 19.8892C67.149 19.2984 67.2759 18.6415 67.2759 17.9183V10.2024H71.4783V25.4813H67.2759V23.9076C66.7988 24.4882 66.2253 24.9669 65.5554 25.3438C64.8956 25.7207 64.1393 25.9091 63.2867 25.9091C61.8453 25.9091 60.6018 25.5526 59.5563 24.8396C58.5209 24.1266 57.719 23.1691 57.1506 21.9672C56.5822 20.7652 56.2929 19.436 56.2827 17.9794Z"
+                        fill="#1C1C1C"></path>
+                    <path
+                        d="M83.572 14.4194H80.8313V25.4813H76.629V14.4194H74.5278V10.2024H76.629V5.40489H80.8313V10.2024H83.572V14.4194Z"
+                        fill="#1C1C1C"></path>
+                    <path
+                        d="M86.4743 17.9794V10.2024H90.6766V17.9183C90.6766 18.6415 90.8238 19.2984 91.1182 19.8892C91.4126 20.48 91.8237 20.9537 92.3515 21.3102C92.8895 21.6565 93.5087 21.8296 94.2091 21.8296C94.9095 21.8296 95.4982 21.6565 95.9753 21.3102C96.4625 20.9537 96.833 20.48 97.0868 19.8892C97.3406 19.2984 97.4674 18.6415 97.4674 17.9183V10.2024H101.67V25.4813H97.4674V23.9076C96.9904 24.4882 96.4168 24.9669 95.7469 25.3438C95.0871 25.7207 94.3309 25.9091 93.4782 25.9091C92.0368 25.9091 90.7934 25.5526 89.7478 24.8396C88.7125 24.1266 87.9106 23.1691 87.3421 21.9672C86.7737 20.7652 86.4844 19.436 86.4743 17.9794Z"
+                        fill="#1C1C1C"></path>
+                    <path
+                        d="M114.966 14.5111C114.692 14.3074 114.388 14.1495 114.053 14.0374C113.718 13.9152 113.347 13.8541 112.941 13.8541C112.251 13.8541 111.662 14.0323 111.175 14.3888C110.698 14.7352 110.333 15.2037 110.079 15.7945C109.835 16.3853 109.713 17.0423 109.713 17.7655V25.4813H105.481V10.2024H109.683V11.7762C110.17 11.1854 110.744 10.7117 111.404 10.3552C112.073 9.98854 112.835 9.8052 113.687 9.8052C114.033 9.8052 114.368 9.81538 114.692 9.83575C115.017 9.84594 115.332 9.89687 115.636 9.98854L114.966 14.5111Z"
+                        fill="#1C1C1C"></path>
+                    <path
+                        d="M132.955 17.6738V25.4813H128.752V17.7349C128.752 17.0219 128.605 16.37 128.311 15.7792C128.016 15.1884 127.6 14.7148 127.062 14.3583C126.534 14.0018 125.92 13.8235 125.22 13.8235C124.529 13.8235 123.941 14.0018 123.454 14.3583C122.966 14.7148 122.596 15.1884 122.342 15.7792C122.088 16.37 121.961 17.0219 121.961 17.7349V25.4813H117.759V10.2024H121.961V11.7762C122.449 11.1752 123.022 10.6914 123.682 10.3247C124.352 9.95798 125.113 9.77464 125.966 9.77464C127.397 9.77464 128.63 10.1311 129.666 10.8442C130.711 11.5572 131.518 12.5146 132.087 13.7166C132.655 14.9083 132.944 16.2274 132.955 17.6738Z"
+                        fill="#1C1C1C"></path>
+                </svg>
+            </a>
+
+            <!-- Mobile menu button -->
+            <button data-collapse-toggle="navbar-default" type="button"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-700 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
+            </button>
+
+            <!-- Menu links -->
+            <div class="hidden lg:sticky top-20 h-screen lg:h-auto left-0 z-50 bg-white w-full lg:flex lg:w-auto items-center"
+                id="navbar-default">
+                <ul
+                    class="font-medium flex flex-col p-4 lg:p-0 mt-4 border border-gray-100 rounded-lg lg:flex-row rtl:space-x-reverse lg:mt-0 lg:border-0">
+
+                    <!-- Home dropdown -->
+                    <li class="flex items-center relative group">
+                        <div class="flex items-center relative h-14 lg:h-20 text-left">
+                            <button type="button"
+                                class="flex items-center gap-3 !px-6 h-14 lg:h-20 relative text-gray-800 py-2 rounded-sm hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:p-0 z-10"
+                                id="menu-button" aria-expanded="true" aria-haspopup="true">
+                                Home
+                                <svg class="-mr-1 size-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor"
+                                    aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span
+                                    class="absolute top-0 left-0 h-1 bg-yellow w-0 group-hover:w-full transition-all duration-300 ease-in-out"></span>
+                            </button>
+
+                            <!-- Dropdown Menu -->
+                            <div class="absolute top-16 right-0 z-20 bg-white w-56 rounded-md shadow-lg ring-1 ring-black/5 hidden group-hover:block"
+                                role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                                <div class="py-1" role="none">
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                        role="menuitem">Account
+                                        settings</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                        role="menuitem">Support</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                        role="menuitem">License</a>
+                                    <form method="POST" action="#" role="none">
+                                        <button type="submit"
+                                            class="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                                            role="menuitem">Sign out</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Other links -->
+                    <li class="flex items-start group relative">
+                        <a href="how-it-work.html"
+                            class="h-14 lg:h-20 flex items-center !px-5 text-gray-800 rounded-sm lg:hover:bg-transparent lg:p-0 relative z-10">
+                            How it work
+                            <span
+                                class="absolute top-0 left-0 h-1 bg-yellow w-0 group-hover:w-full transition-all duration-300"></span>
+                        </a>
+                    </li>
+
+                    <li class="flex items-start group relative">
+                        <a href="#"
+                            class="h-14 lg:h-20 flex items-center !px-5 text-gray-800 rounded-sm lg:hover:bg-transparent lg:p-0 relative z-10">
+                            Find instructors
+                            <span
+                                class="absolute top-0 left-0 h-1 bg-yellow w-0 group-hover:w-full transition-all duration-300"></span>
+                        </a>
+                    </li>
+
+                    <li class="flex items-start group relative">
+                        <a href="#"
+                            class="h-14 lg:h-20 flex items-center !px-5 text-gray-800 rounded-sm lg:hover:bg-transparent lg:p-0 relative z-10">
+                            Pages
+                            <span
+                                class="absolute top-0 left-0 h-1 bg-yellow w-0 group-hover:w-full transition-all duration-300"></span>
+                        </a>
+                    </li>
+
+                    <li class="flex items-start group relative">
+                        <a href="/contact-us.html"
+                            class="h-14 lg:h-20 flex items-center !px-5 text-gray-800 rounded-sm lg:hover:bg-transparent lg:p-0 relative z-10">
+                            Contact Us
+                            <span
+                                class="absolute top-0 left-0 h-1 bg-yellow w-0 group-hover:w-full transition-all duration-300"></span>
+                        </a>
+                    </li>
+
+                    <!-- CTA Button -->
+                    <li class="flex items-center ml-4 lg:ml-0">
+                        <button type="button"
+                            class="bg-purple px-3 py-2 rounded-md self-center text-white text-base font-medium">
+                            <a href="login.html">Get Started</a>
+                        </button>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar -->
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-7xl">
+
+        <!-- Header Section -->
+        <div
+            class="bg-purple-100 rounded-3xl shadow-xl p-6 lg:p-12 mb-10 flex flex-col lg:flex-row items-center lg:items-start space-y-8 lg:space-y-0 lg:space-x-12 relative overflow-hidden">
+            <!-- Subtle background gradient for the div -->
+            <div class="absolute bg-gradient-to-br from-purple-50 to-purple-100 opacity-50 rounded-3xl"></div>
+
+            <!-- Left Content Area -->
+            <div class="flex-1 relative z-10">
+                <!-- Star Rating -->
+                <div class="flex items-center mb-4 animate-hero-item">
+                    <div class="flex text-purple-400 mr-2">
+                        <!-- Five stars -->
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.783.57-1.838-.197-1.538-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.921 8.72c-.783-.57-.381-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.783.57-1.838-.197-1.538-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.921 8.72c-.783-.57-.381-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.783.57-1.838-.197-1.538-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.921 8.72c-.783-.57-.381-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.783.57-1.838-.197-1.538-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.921 8.72c-.783-.57-.381-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.783.57-1.838-.197-1.538-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.921 8.72c-.783-.57-.381-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                    </div>
+                    <span class="text-gray-600 font-medium">(976 reviews)</span>
+                </div>
+
+                <!-- Course Title -->
+                <h1
+                    class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-dark-gray mb-4 leading-tight animate-hero-item">
+                    Web Development</h1>
+
+                <!-- Course Description -->
+                <p class="text-gray-700 text-lg mb-6 max-w-lg animate-hero-item">
+                    Dive into the latest technologies, learn to build responsive websites, and master front-end and
+                    back-end development.
+                </p>
+
+                <!-- Key Features Checklist -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 animate-hero-item">
+                    <div
+                        class="flex items-center text-gray-800 group transform transition duration-300 hover:scale-105">
+                        <svg class="w-6 h-6 text-green-500 mr-2 transform transition-transform duration-300 group-hover:scale-110"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        <span class="font-medium">Comprehensive Curriculum</span>
+                    </div>
+                    <div
+                        class="flex items-center text-gray-800 group transform transition duration-300 hover:scale-105">
+                        <svg class="w-6 h-6 text-green-500 mr-2 transform transition-transform duration-300 group-hover:scale-110"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        <span class="font-medium">Expert Instructors</span>
+                    </div>
+                    <div
+                        class="flex items-center text-gray-800 group transform transition duration-300 hover:scale-105">
+                        <svg class="w-6 h-6 text-green-500 mr-2 transform transition-transform duration-300 group-hover:scale-110"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        <span class="font-medium">Hands-On Projects</span>
+                    </div>
+                    <div
+                        class="flex items-center text-gray-800 group transform transition duration-300 hover:scale-105">
+                        <svg class="w-6 h-6 text-green-500 mr-2 transform transition-transform duration-300 group-hover:scale-110"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        <span class="font-medium">Career-Ready Skills</span>
+                    </div>
+                </div>
+
+                <!-- Call to Action Buttons -->
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 animate-hero-item">
+                    <button
+                        class="bg-purple text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition duration-300 ease-in-out">
+                        Enroll Now
+                    </button>
+                    <button
+                        class="bg-white border border-gray-300 text-gray-800 hover:bg-gray-50 font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition duration-300 ease-in-out">
+                        See Curriculum
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right Image/Video Section -->
+            <div class="relative w-full lg:w-2/5 flex-shrink-0 rounded-3xl overflow-hidden shadow-lg transform translate-y-0 lg:translate-y-0 animate-hero-item"
+                style="animation-delay: 0.6s;">
+                <img src="https://miro.medium.com/v2/resize:fit:750/0*QmxDMtQShSHGzC6v.jpg"
+                    alt="Web Development Course Video" class="w-full h-auto object-cover">
+                <!-- Play button overlay -->
+                <div class="play-button-overlay">
+                    <svg class="w-10 h-10" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <nav
+            class="bg-white rounded-xl shadow-md p-2 mb-10 flex flex-wrap justify-center sm:justify-start space-x-2 sm:space-x-4 lg:space-x-6 relative z-10">
+            <button id="tab-overview"
+                class="tab-button px-5 py-2 rounded-lg font-medium transition duration-300 ease-in-out tab-active hover:bg-purple-50 hover:text-purple-700 hover:font-semibold">
+                Overview
+            </button>
+            <button id="tab-course-info"
+                class="tab-button px-5 py-2 rounded-lg font-medium text-gray-700  transition duration-300 ease-in-out hover:bg-purple-50 hover:text-purple-700 hover:font-semibold">
+                Course info
+            </button>
+            <button id="tab-download-material"
+                class="tab-button px-5 py-2 rounded-lg font-medium text-gray-700  transition duration-300 ease-in-out hover:bg-purple-50 hover:text-purple-700 hover:font-semibold">
+                Download Material
+            </button>
+            <button id="tab-testimonials"
+                class="tab-button px-5 py-2 rounded-lg font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-700 hover:font-semibold transition duration-300 ease-in-out">
+                Testimonials
+            </button>
+            <button id="tab-pricing"
+                class="tab-button px-5 py-2 rounded-lg font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-700 hover:font-semibold transition duration-300 ease-in-out">
+                Pricing
+            </button>
+            <button id="tab-faq"
+                class="tab-button px-5 py-2 rounded-lg font-medium text-gray-700 hover:bg-purple-50 hover:text-purple-700 hover:font-semibold transition duration-300 ease-in-out">
+                Faq
+            </button>
+        </nav>
+
+        <!-- Main Content Area for Tabs -->
+        <main class="bg-white rounded-xl shadow-md p-6 lg:p-10 relative z-10">
+            <!-- Overview Content -->
+            <section id="overview-content" class="content-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Course Overview</h2>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Welcome to the comprehensive Web Development Course! This program is designed for beginners and
+                    aspiring developers who want to master the art of building modern, responsive, and dynamic web
+                    applications. You'll start with the fundamentals of HTML, CSS, and JavaScript, and progressively
+                    move towards advanced topics like front-end frameworks (React), back-end development (Node.js with
+                    Express), and database management (MongoDB).
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    Our hands-on approach ensures you gain practical experience through numerous projects, culminating
+                    in a full-stack capstone project. By the end of this course, you will have a strong portfolio and
+                    the essential skills to confidently pursue a career in web development.
+                </p>
+            </section>
+
+            <!-- Course Info Content -->
+            <section id="course-info-content" class="content-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Detailed Course Information</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-700">
+                    <div>
+                        <h3 class="font-semibold text-xl mb-3 text-gray-900">What you'll learn:</h3>
+                        <ul class="list-disc list-inside space-y-2 text-base">
+                            <li>HTML5, CSS3, and modern JavaScript (ES6+)</li>
+                            <li>Building responsive layouts with Tailwind CSS</li>
+                            <li>Front-end development with React.js</li>
+                            <li>Back-end development with Node.js and Express.js</li>
+                            <li>Database management with MongoDB</li>
+                            <li>Version control with Git & GitHub</li>
+                            <li>Deployment strategies for web applications</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-xl mb-3 text-gray-900">Course Structure:</h3>
+                        <ul class="list-disc list-inside space-y-2 text-base">
+                            <li>Module 1: Front-End Fundamentals</li>
+                            <li>Module 2: Advanced CSS & Responsive Design</li>
+                            <li>Module 3: JavaScript Deep Dive</li>
+                            <li>Module 4: React.js Essentials</li>
+                            <li>Module 5: Back-End with Node.js</li>
+                            <li>Module 6: Database Integration</li>
+                            <li>Module 7: Authentication & Security</li>
+                            <li>Module 8: Final Project & Deployment</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="text-gray-700 mt-6 leading-relaxed">
+                    Each module includes video lectures, coding exercises, quizzes, and project assignments to reinforce
+                    your learning. Our expert instructors provide personalized feedback and support.
+                </p>
+            </section>
+
+            <!-- Download Material Content -->
+            <section id="download-material-content" class="content-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Downloadable Course Materials</h2>
+                <p class="text-gray-700 mb-6 leading-relaxed">
+                    Access all course slides, detailed code snippets, project starter files, and supplementary resources
+                    directly from this section. We provide meticulously organized materials to support every step of
+                    your learning journey.
+                </p>
+                <div class="space-y-4">
+                    <a href="#"
+                        class="bg-gray-100 hover:bg-gray-200 p-4 rounded-lg flex items-center justify-between transition duration-300 transform hover:scale-100.5 hover:shadow-sm">
+                        <span class="font-medium text-gray-800">Module 1: HTML & CSS Basics (PDF)</span>
+                        <svg class="w-6 h-6 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                    <a href="#"
+                        class="bg-gray-100 hover:bg-gray-200 p-4 rounded-lg flex items-center justify-between transition duration-300 transform hover:scale-100.5 hover:shadow-sm">
+                        <span class="font-medium text-gray-800">React.js Project Files (ZIP)</span>
+                        <svg class="w-6 h-6 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                    <a href="#"
+                        class="bg-gray-100 hover:bg-gray-200 p-4 rounded-lg flex items-center justify-between transition duration-300 transform hover:scale-100.5 hover:shadow-sm">
+                        <span class="font-medium text-gray-800">Full-Stack Cheatsheet (PDF)</span>
+                        <svg class="w-6 h-6 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Testimonials Content -->
+            <section id="testimonials-content" class="content-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">What Our Students Say</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div
+                        class="bg-gray-50 p-6 rounded-xl shadow-sm transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                        <p class="text-gray-700 italic mb-4 text-base">"This course transformed my understanding of web
+                            development. The instructors are incredibly knowledgeable and the projects are highly
+                            practical!"</p>
+                        <p class="font-semibold text-gray-800 text-sm">- Jane Doe, Front-End Developer</p>
+                    </div>
+                    <div
+                        class="bg-gray-50 p-6 rounded-xl shadow-sm transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                        <p class="text-gray-700 italic mb-4 text-base">"I landed my first junior developer role just
+                            three months after completing this course. Highly recommend it to anyone serious about a dev
+                            career."</p>
+                        <p class="font-semibold text-gray-800 text-sm">- John Smith, Full-Stack Engineer</p>
+                    </div>
+                    <div
+                        class="bg-gray-50 p-6 rounded-xl shadow-sm transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                        <p class="text-gray-700 italic mb-4 text-base">"The curriculum is very well-structured, starting
+                            from basics and building up to complex topics. Excellent support from the community."</p>
+                        <p class="font-semibold text-gray-800 text-sm">- Emily White, Aspiring Web Developer</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pricing Content -->
+            <section id="pricing-content" class="content-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Flexible Pricing Plans</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Basic Plan -->
+                    <div
+                        class="bg-white border border-gray-200 rounded-2xl shadow-md p-8 text-center transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Basic Plan</h3>
+                        <p class="text-5xl font-extrabold text-purple-600 mb-6">$499</p>
+                        <ul class="text-gray-700 text-base mb-8 space-y-3 text-left mx-auto max-w-xs">
+                            <li>&#10003; All Core Modules</li>
+                            <li>&#10003; Lifetime Access</li>
+                            <li>&#10003; Downloadable Resources</li>
+                            <li class="text-gray-500 line-through">&#10006; 1-on-1 Mentorship</li>
+                            <li class="text-gray-500 line-through">&#10006; Certificate of Completion</li>
+                        </ul>
+                        <button
+                            class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 px-6 rounded-lg transition duration-300 transform hover:-translate-y-0.5">Choose
+                            Plan</button>
+                    </div>
+                    <!-- Pro Plan (Highlighted) -->
+                    <div
+                        class="bg-gradient-to-br from-purple-500 to-purple-700 text-white rounded-2xl shadow-2xl p-8 text-center scale-105 relative transform transition duration-300 hover:scale-110 hover:shadow-3xl">
+                        <div
+                            class="absolute -top-3 left-1/2 -translate-x-1/2 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                            Most Popular
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Pro Plan</h3>
+                        <p class="text-5xl font-extrabold mb-6">$899</p>
+                        <ul class="text-white text-base mb-8 space-y-3 text-left mx-auto max-w-xs">
+                            <li>&#10003; All Core Modules</li>
+                            <li>&#10003; Lifetime Access</li>
+                            <li>&#10003; Downloadable Resources</li>
+                            <li>&#10003; 1-on-1 Mentorship (3 hrs)</li>
+                            <li>&#10003; Certificate of Completion</li>
+                        </ul>
+                        <button
+                            class="bg-white hover:bg-purple-100 text-purple-600 font-semibold py-3 px-6 rounded-lg transition duration-300 transform hover:-translate-y-0.5">Choose
+                            Plan</button>
+                    </div>
+                    <!-- Premium Plan -->
+                    <div
+                        class="bg-white border border-gray-200 rounded-2xl shadow-md p-8 text-center transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Premium Plan</h3>
+                        <p class="text-5xl font-extrabold text-purple-600 mb-6">$1299</p>
+                        <ul class="text-gray-700 text-base mb-8 space-y-3 text-left mx-auto max-w-xs">
+                            <li>&#10003; All Core Modules</li>
+                            <li>&#10003; Lifetime Access</li>
+                            <li>&#10003; Downloadable Resources</li>
+                            <li>&#10003; 1-on-1 Mentorship (Unlimited)</li>
+                            <li>&#10003; Certificate of Completion</li>
+                        </ul>
+                        <button
+                            class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 px-6 rounded-lg transition duration-300 transform hover:-translate-y-0.5">Choose
+                            Plan</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Content -->
+            <section id="faq-content" class="content-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+                <div class="space-y-4">
+                    <div class="bg-gray-50 p-5 rounded-lg shadow-sm transform transition duration-300 hover:shadow-md">
+                        <details>
+                            <summary
+                                class="font-semibold text-gray-800 cursor-pointer text-lg flex items-center justify-between">
+                                What prerequisites are there for this course?
+                                <span class="ml-2">
+                                    <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-200 group-hover:rotate-90"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </summary>
+                            <p class="text-gray-700 mt-2 ml-4 text-base leading-relaxed">
+                                No prior programming experience is required! This course starts from the absolute
+                                basics, making it perfect for beginners. All you need is a computer and an eagerness to
+                                learn.
+                            </p>
+                        </details>
+                    </div>
+                    <div class="bg-gray-50 p-5 rounded-lg shadow-sm transform transition duration-300 hover:shadow-md">
+                        <details>
+                            <summary
+                                class="font-semibold text-gray-800 cursor-pointer text-lg flex items-center justify-between">
+                                How long do I have access to the course materials?
+                                <span class="ml-2">
+                                    <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-200 group-hover:rotate-90"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </summary>
+                            <p class="text-gray-700 mt-2 ml-4 text-base leading-relaxed">
+                                You get lifetime access to all course materials, including future updates and new
+                                content, once you enroll. Learn at your own pace, anytime, anywhere.
+                            </p>
+                        </details>
+                    </div>
+                    <div class="bg-gray-50 p-5 rounded-lg shadow-sm transform transition duration-300 hover:shadow-md">
+                        <details>
+                            <summary
+                                class="font-semibold text-gray-800 cursor-pointer text-lg flex items-center justify-between">
+                                Is there a certificate upon completion?
+                                <span class="ml-2">
+                                    <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-200 group-hover:rotate-90"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </summary>
+                            <p class="text-gray-700 mt-2 ml-4 text-base leading-relaxed">
+                                Yes, a professional certificate of completion is provided for students who enroll in the
+                                Pro and Premium plans after successfully finishing all modules and the capstone project.
+                            </p>
+                        </details>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <!-- footer -->
+    <footer class="bg-purple-dark text-white py-12 px-6 md:px-16 text-sm">
+        <div class="max-w-7xl mx-auto space-y-12">
+            <!-- Row 1: Logo + Contact -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="160" height="36" viewBox="0 0 160 36" fill="none"
+                            class="amsvglogo replaced-svg">
+                            <path d="M17.7273 14.4H14.1819C6.34608 14.4 0 7.9563 0 0H17.7273V14.4Z" fill="#F05B8A">
+                            </path>
+                            <path
+                                d="M31.909 14.3999V35.9999C24.0732 35.9999 17.7271 29.5562 17.7271 21.5999V14.3999H31.909Z"
+                                fill="#FFC649"></path>
+                            <path d="M31.909 14.4H17.7271V0L31.909 14.4Z" fill="#F04A2D"></path>
+                            <path
+                                d="M30.3501 6.78655L25.2256 1.58319C24.6496 0.998319 25.0568 0 25.8711 0H30.9857C31.4922 0 31.8994 0.413445 31.8994 0.927731V6.12101C31.9093 6.95798 30.9261 7.37143 30.3501 6.78655Z"
+                                fill="#FFC649"></path>
+                            <path d="M65.0983 4.90918V9.96953H57.5706V30.5776H52.5277V9.96953H45V4.90918H65.0983Z"
+                                fill="white"></path>
+                            <path
+                                d="M67.5393 21.5753V12.243H72.5821V21.502C72.5821 22.3698 72.7587 23.1582 73.112 23.8672C73.4652 24.5761 73.9586 25.1445 74.592 25.5723C75.2375 25.9879 75.9806 26.1957 76.8211 26.1957C77.6615 26.1957 78.368 25.9879 78.9405 25.5723C79.5252 25.1445 79.9698 24.5761 80.2743 23.8672C80.5788 23.1582 80.7311 22.3698 80.7311 21.502V12.243H85.774V30.5776H80.7311V28.6892C80.1586 29.3859 79.4704 29.9604 78.6664 30.4126C77.8747 30.8649 76.9672 31.091 75.944 31.091C74.2144 31.091 72.7222 30.6632 71.4676 29.8076C70.2251 28.952 69.2629 27.803 68.5807 26.3607C67.8986 24.9183 67.5514 23.3232 67.5393 21.5753Z"
+                                fill="white"></path>
+                            <path
+                                d="M100.286 17.3034H96.9976V30.5776H91.9548V17.3034H89.4333V12.243H91.9548V6.48596H96.9976V12.243H100.286V17.3034Z"
+                                fill="white"></path>
+                            <path
+                                d="M103.769 21.5753V12.243H108.812V21.502C108.812 22.3698 108.989 23.1582 109.342 23.8672C109.695 24.5761 110.188 25.1445 110.822 25.5723C111.467 25.9879 112.21 26.1957 113.051 26.1957C113.891 26.1957 114.598 25.9879 115.17 25.5723C115.755 25.1445 116.2 24.5761 116.504 23.8672C116.809 23.1582 116.961 22.3698 116.961 21.502V12.243H122.004V30.5776H116.961V28.6892C116.388 29.3859 115.7 29.9604 114.896 30.4126C114.105 30.8649 113.197 31.091 112.174 31.091C110.444 31.091 108.952 30.6632 107.697 29.8076C106.455 28.952 105.493 27.803 104.811 26.3607C104.128 24.9183 103.781 23.3232 103.769 21.5753Z"
+                                fill="white"></path>
+                            <path
+                                d="M137.96 17.4134C137.631 17.1689 137.265 16.9795 136.863 16.845C136.461 16.6983 136.017 16.625 135.53 16.625C134.701 16.625 133.995 16.8389 133.41 17.2667C132.838 17.6823 132.399 18.2446 132.095 18.9535C131.802 19.6624 131.656 20.4508 131.656 21.3187V30.5776H126.577V12.243H131.62V14.1315C132.204 13.4226 132.892 12.8542 133.684 12.4264C134.488 11.9863 135.402 11.7663 136.425 11.7663C136.839 11.7663 137.241 11.7785 137.631 11.803C138.021 11.8152 138.398 11.8763 138.764 11.9863L137.96 17.4134Z"
+                                fill="white"></path>
+                            <path
+                                d="M159.545 21.2086V30.5776H154.503V21.282C154.503 20.4264 154.326 19.6441 153.973 18.9352C153.619 18.2262 153.12 17.6578 152.474 17.23C151.841 16.8022 151.104 16.5883 150.264 16.5883C149.435 16.5883 148.729 16.8022 148.144 17.23C147.56 17.6578 147.115 18.2262 146.81 18.9352C146.506 19.6441 146.354 20.4264 146.354 21.282V30.5776H141.311V12.243H146.354V14.1315C146.938 13.4103 147.627 12.8297 148.418 12.3897C149.222 11.9497 150.136 11.7297 151.159 11.7297C152.876 11.7297 154.356 12.1575 155.599 13.0131C156.853 13.8687 157.822 15.0177 158.504 16.46C159.186 17.8901 159.533 19.473 159.545 21.2086Z"
+                                fill="white"></path>
+                        </svg>
+                    </div>
+                    <p class="text-gray-300 mb-4 font-medium">
+                        Accusamus etidio dignissimos ducimus blanditiis praesentium
+                        volupta eleniti atquete corrupti quolores etmquasa molestias
+                        epturi sinteam occaecati cupiditate non providente mikume
+                        molareshe.
+                    </p>
+                    <div class="flex gap-4 text-2xl text-gray-400">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                        <a href="#"><i class="fab fa-twitch"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4 text-lg">
+                        Feel free to share your question
+                    </h4>
+                    <ul class="text-gray-300 space-y-2">
+                        <li>
+                            📞 +62 877 77263549
+                            <span class="text-xs">(Mon to Sun 9am - 11pm GMT)</span>
+                        </li>
+                        <li>📧 hello@youremailid.co.uk</li>
+                        <li>📠 +62 811 09998263</li>
+                        <li>
+                            💬 (+33)7 75 55 9375
+                            <span class="text-xs">(Mon to Sun 9am - 11pm GMT)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-gray-600" />
+
+            <!-- Row 2: Categories + Classes -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h4 class="text-white font-semibold mb-4 text-lg">
+                        Explore tutors by categories
+                    </h4>
+                    <ul class="text-gray-300 space-y-1 columns-2 px-4">
+                        <li class="font-medium list-disc">General mathematics</li>
+                        <li class="font-medium list-disc">English communications</li>
+                        <li class="font-medium list-disc">Social sciences</li>
+                        <li class="font-medium list-disc">Student success skills</li>
+                        <li class="font-medium list-disc">ACT® test prep</li>
+                        <li class="font-medium list-disc">Advanced placement</li>
+                        <li class="font-medium list-disc">Content writing</li>
+                        <li class="font-medium list-disc">Maketing business</li>
+                        <li class="font-medium list-disc">Advance science play</li>
+                        <li class="font-medium list-disc">SAT prep</li>
+                        <li class="font-medium list-disc">Grooming technology</li>
+                        <li class="font-medium list-disc">World languages</li>
+                        <li class="font-medium list-disc">Career support</li>
+                        <li class="font-medium list-disc">International support</li>
+                        <li class="font-medium list-disc">
+                            <a href="#" class="text-blue-400">Explore all</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4 text-lg">
+                        Online classes
+                    </h4>
+                    <ul class="text-gray-300 space-y-1 columns-2 px-4">
+                        <li class="font-medium list-disc">Online science classes</li>
+                        <li class="font-medium list-disc">Online computer classes</li>
+                        <li class="font-medium list-disc">Online statistic classes</li>
+                        <li class="font-medium list-disc">Online java classes</li>
+                        <li class="font-medium list-disc">Online C programming</li>
+                        <li class="font-medium list-disc">Online mathemetic classes</li>
+                        <li class="font-medium list-disc">Online geographic classes</li>
+                        <li class="font-medium list-disc">Online islamiat classes</li>
+                        <li class="font-medium list-disc">IBM python Analyst</li>
+                        <li class="font-medium list-disc">
+                            <a href="#" class="text-blue-400">Explore all</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-gray-600" />
+
+            <!-- Row 3: Useful links + Apps + Newsletter -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                <!-- Useful Links -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4 text-lg">Useful links</h4>
+                    <ul class="text-gray-300 space-y-1 columns-2 font-medium list-disc px-4">
+                        <li class="font-medium list-disc">About</li>
+                        <li class="font-medium list-disc">Courses</li>
+                        <li class="font-medium list-disc">Join our community</li>
+                        <li class="font-medium list-disc">How it work</li>
+                        <li class="font-medium list-disc">Online classes</li>
+                        <li class="font-medium list-disc">Programs & degrees</li>
+                        <li class="font-medium list-disc">Sign in now</li>
+                        <li class="font-medium list-disc">F.A.Q</li>
+                    </ul>
+                </div>
+
+                <!-- Mobile App -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Get mobile app</h4>
+                    <p class="text-gray-300 mb-4 font-medium">
+                        Take education on the go. Get our mobile app for FREE! on your
+                        Apple and Android devices
+                    </p>
+                    <div class="flex gap-4">
+                        <img src="/assets/images/google-play.png" alt="Google Play" class="h-10" />
+                        <img src="/assets/images/app-store.png" alt="App Store" class="h-10" />
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Signup for newsletter</h4>
+                    <p class="text-gray-300 mb-4 font-medium">
+                        Corrupti quolores etmquasa molestias etpurtite sinteam occaecati
+                        amet cupiditate mikume molareshe.
+                    </p>
+                    <div class="flex">
+                        <input type="email" placeholder="Enter your email"
+                            class="bg-[#36174e] text-white px-4 py-2 rounded-l w-full outline-none" />
+                        <button class="bg-orange-500 px-4 rounded-r">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div
+                class="mt-8 border-t border-gray-600 pt-6 flex flex-col md:flex-row justify-between items-center text-gray-400 text-xs">
+                <p>© 1994 - 2022 All Rights Reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white font-mediums">Careers</a>
+                    <a href="#" class="hover:text-white font-mediums">Terms of use</a>
+                    <a href="#" class="hover:text-white font-mediums">Privacy policy</a>
+                    <a href="#" class="hover:text-white font-mediums">Cookie notice</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer end -->
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const contentSections = document.querySelectorAll('.content-section');
+        const heroItems = document.querySelectorAll('.animate-hero-item');
+
+        // Function to show a specific tab content and activate its button
+        function showTab(tabId) {
+            // Deactivate all tab buttons
+            tabButtons.forEach(button => {
+                button.classList.remove('tab-active');
+                button.classList.add('text-gray-700', 'hover:bg-gray-100');
+                button.classList.remove('text-purple-600', 'bg-purple-100');
+            });
+
+            // Hide all content sections and remove animation class
+            contentSections.forEach(section => {
+                section.style.display = 'none';
+                section.classList.remove('animate-in'); // Remove class for re-triggering animation
+            });
+
+            // Activate the clicked tab button
+            const clickedTabButton = document.getElementById(tabId);
+            if (clickedTabButton) {
+                clickedTabButton.classList.add('tab-active');
+                clickedTabButton.classList.remove('text-gray-700', 'hover:bg-gray-100');
+                clickedTabButton.classList.add('text-purple-600', 'bg-purple-100');
+            }
+
+            // Show the corresponding content section and trigger animation
+            const contentId = tabId.replace('tab-', '') + '-content';
+            const contentToShow = document.getElementById(contentId);
+            if (contentToShow) {
+                contentToShow.style.display = 'block';
+                // Trigger reflow to ensure animation restarts if tab clicked multiple times
+                void contentToShow.offsetWidth;
+                contentToShow.classList.add('animate-in');
+            }
+        }
+
+        // Add click event listeners to all tab buttons
+        tabButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                showTab(this.id);
+            });
+        });
+
+        // Set the initial active tab (Overview) on load
+        showTab('tab-overview');
+
+        // Animate hero section items on initial load
+        heroItems.forEach(item => {
+            item.style.opacity = '0'; // Ensure starting state is hidden
+            item.style.transform = 'translateY(20px)'; // Start slightly below
+        });
+    });
+</script>
+</html>
