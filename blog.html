@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore What's New</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="./input.css" rel="stylesheet" />
+    <link href="./output.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+            /* Light gray background */
+            color: #333;
+        }
+
+        /* Custom scrollbar for categories for aesthetics */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f0f2f5;
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e0;
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #a0aec0;
+        }
+
+        /* Styles for the grid layout */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            /* Responsive grid columns, starts with smaller fits */
+            gap: 1.5rem;
+            /* gap-6 in Tailwind */
+        }
+
+        /* On medium screens and up, show 2 columns */
+        @media (min-width: 768px) {
+
+            /* md breakpoint */
+            .articles-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* On large screens and up, show 3 columns */
+        @media (min-width: 1024px) {
+
+            /* lg breakpoint */
+            .articles-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .articles-grid .article-item {
+            flex-direction: column;
+            /* Stack image and text vertically in grid */
+            padding-bottom: 0;
+            /* Remove bottom padding from individual items in grid */
+            border-bottom: none;
+            /* Remove individual item borders in grid */
+        }
+
+        .articles-grid .article-item img {
+            width: 100%;
+            /* Make image full width of grid item */
+            height: 200px;
+            /* Fixed height for consistency in grid */
+            object-fit: cover;
+            /* Ensure images cover the area */
+            margin-bottom: 1rem;
+            /* Space between image and text in grid */
+        }
+
+        /* Styles for the list layout (default) */
+        .articles-list .article-item {
+            flex-direction: column;
+            /* Default for mobile */
+            padding-bottom: 1.5rem;
+            /* space-y-6 equivalent in list */
+            border-bottom: 1px solid #e2e8f0;
+            /* border-b border-gray-200 */
+        }
+
+        @media (min-width: 640px) {
+
+            /* sm breakpoint */
+            .articles-list .article-item {
+                flex-direction: row;
+                /* Side-by-side for larger screens */
+            }
+        }
+    </style>
+</head>
+
+<body class="p-4 md:p-8 lg:p-10">
+
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-6">
+
+        <!-- 📱 Toggle Button (Mobile Only) -->
+        <button id="openSheetBtn"
+            class="fixed bottom-4 right-4 z-50 bg-purple text-white px-4 py-2 rounded-full shadow-lg lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
+              </svg>
+              
+        </button>
+
+        <!-- 🔲 Overlay -->
+        <div id="sheetOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden lg:hidden"></div>
+
+        <!-- 📄 Bottom Sheet -->
+        <div id="mobileSheet" class="
+    fixed bottom-0 left-0 right-0 bg-white rounded-t-2xl shadow-lg p-6 z-50
+    transform translate-y-full transition-transform duration-300
+    lg:translate-y-0 lg:static lg:rounded-none lg:shadow-none lg:w-72 lg:block lg:flex-shrink-0
+  ">
+            <!-- ❌ Close Button (Mobile Only) -->
+            <button id="closeSheetBtn" class="absolute top-4 right-4 text-gray-600 lg:hidden">
+                ✕
+            </button>
+
+            <!-- 💡 Filter Sidebar Content -->
+            <div class="space-y-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">Narrow Search</h2>
+
+                <!-- 🔍 Search Input -->
+                <div class="relative">
+                    <input type="text" placeholder="Search with keyword"
+                        class="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                    <button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+
+                <!-- 🗂️ Categories Section -->
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Categories</h3>
+                    <ul class="space-y-2 text-gray-700 max-h-60 overflow-y-auto">
+                        <li
+                            class="flex justify-between items-center py-1 hover:bg-gray-50 rounded-md px-2 cursor-pointer">
+                            <span>Architecture</span><span class="text-sm text-gray-500">(6)</span>
+                        </li>
+                        <li
+                            class="flex justify-between items-center py-1 hover:bg-gray-50 rounded-md px-2 cursor-pointer">
+                            <span>Art</span><span class="text-sm text-gray-500">(3)</span>
+                        </li>
+                        <li
+                            class="flex justify-between items-center py-1 hover:bg-gray-50 rounded-md px-2 cursor-pointer">
+                            <span>Colorful</span><span class="text-sm text-gray-500">(3)</span>
+                        </li>
+                        <li
+                            class="flex justify-between items-center py-1 hover:bg-gray-50 rounded-md px-2 cursor-pointer">
+                            <span>DIY</span><span class="text-sm text-gray-500">(6)</span>
+                        </li>
+                        <li
+                            class="flex justify-between items-center py-1 hover:bg-gray-50 rounded-md px-2 cursor-pointer">
+                            <span>Food</span><span class="text-sm text-gray-500">(5)</span>
+                        </li>
+                        <!-- Add the rest of your categories here -->
+                    </ul>
+                </div>
+
+                <!-- 📸 Instagram Section -->
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Instagram</h3>
+                    <div class="grid grid-cols-3 gap-2">
+                        <img src="https://placehold.co/80x80/E5E7EB/4B5563?text=Img1"
+                            class="w-full rounded-md shadow-sm hover:scale-105 transition-transform">
+                        <img src="https://placehold.co/80x80/D1D5DB/4B5563?text=Img2"
+                            class="w-full rounded-md shadow-sm hover:scale-105 transition-transform">
+                        <img src="https://placehold.co/80x80/9CA3AF/4B5563?text=Img3"
+                            class="w-full rounded-md shadow-sm hover:scale-105 transition-transform">
+                        <img src="https://placehold.co/80x80/6B7280/FFFFFF?text=Img4"
+                            class="w-full rounded-md shadow-sm hover:scale-105 transition-transform">
+                        <img src="https://placehold.co/80x80/4B5563/FFFFFF?text=Img5"
+                            class="w-full rounded-md shadow-sm hover:scale-105 transition-transform">
+                        <img src="https://placehold.co/80x80/374151/FFFFFF?text=Img6"
+                            class="w-full rounded-md shadow-sm hover:scale-105 transition-transform">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Main Content Area - Explore Trends -->
+        <div class="flex-grow bg-white p-6 rounded-xl shadow-md space-y-6">
+            <!-- Top Bar with "Explore what's new" and sorting -->
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b pb-4 mb-6">
+                <h1 class="text-2xl font-bold text-gray-800 mb-4 sm:mb-0">Explore what's new in trend</h1>
+                <div class="flex items-center space-x-2">
+                    <span class="text-gray-600 text-sm hidden sm:block">New to old</span>
+                    <select
+                        class="border border-gray-300 rounded-md px-3 py-1 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option>New to old</option>
+                        <option>Old to new</option>
+                        <option>Most popular</option>
+                    </select>
+                    <button id="gridButton"
+                        class="p-2 border border-gray-300 rounded-md text-gray-600 hover:bg-gray-100 transition duration-200">
+                        <i class="fas fa-th-large"></i> <!-- Grid icon -->
+                    </button>
+                    <button id="listButton"
+                        class="p-2 border border-gray-300 rounded-md text-gray-600 hover:bg-gray-100 transition duration-200 bg-gray-100">
+                        <i class="fas fa-bars"></i> <!-- List icon -->
+                    </button>
+                </div>
+            </div>
+
+            <!-- Article List -->
+            <div id="articleListContainer" class="articles-list space-y-8">
+                <!-- Article Item 1 -->
+                <div class="article-item flex gap-6">
+                    <div class="flex-shrink-0 w-full sm:w-1/3 md:w-64">
+                        <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/05/gallery011-612x400.jpg"
+                            alt="Article Thumbnail" class="w-full h-48 sm:h-full object-cover rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-grow space-y-2">
+                        <div class="text-blue-600 text-sm font-medium">Minimal, Technology</div>
+                        <h3 class="text-xl font-bold text-gray-900">The quickest way to deliver your message is whatsapp
+                            now</h3>
+                        <p class="text-gray-700 text-sm leading-relaxed">
+                            Nulla nisl sagittis, sed vulputate consequat pharetra leo mollis amet, duis elit. leo mollis
+                            amet, duis elit. Nulla nisl sagittis, sed vulputate consequat pharetra leo mollis amet, duis
+                            elit, eleita musta nibhae quisque. Aliquate phasllus necerat...
+                        </p>
+                        <div class="flex items-center text-gray-500 text-xs sm:text-sm pt-2">
+                            <span class="mr-3"><i class="fas fa-comments mr-1"></i>0 Comments</span>
+                            <span><i class="fas fa-calendar-alt mr-1"></i>May 12, 2022</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article Item 2 -->
+                <div class="article-item flex gap-6">
+                    <div class="flex-shrink-0 w-full sm:w-1/3 md:w-64">
+                        <img src="https://placehold.co/300x200/A0aec0/4B5563?text=Article+Image"
+                            onerror="this.onerror=null;this.src='https://placehold.co/300x200/A0aec0/4B5563?text=Article+Image';"
+                            alt="Article Thumbnail" class="w-full h-48 sm:h-full object-cover rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-grow space-y-2">
+                        <div class="text-blue-600 text-sm font-medium">Architecture, DIY, Food</div>
+                        <h3 class="text-xl font-bold text-gray-900">Pathways squads put in a strong impression in the
+                            park trial</h3>
+                        <p class="text-gray-700 text-sm leading-relaxed">
+                            Nulla nisl sagittis, sed vulputate consequat pharetra leo mollis amet, duis elit, inemus
+                            nibha quisque. Aliquam phasellues necerat...
+                        </p>
+                        <div class="flex items-center text-gray-500 text-xs sm:text-sm pt-2">
+                            <span class="mr-3"><i class="fas fa-comments mr-1"></i>0 Comments</span>
+                            <span><i class="fas fa-calendar-alt mr-1"></i>May 12, 2022</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article Item 3 -->
+                <div class="article-item flex gap-6">
+                    <div class="flex-shrink-0 w-full sm:w-1/3 md:w-64">
+                        <img src="https://placehold.co/300x200/6B7280/FFFFFF?text=Article+Image"
+                            onerror="this.onerror=null;this.src='https://placehold.co/300x200/6B7280/FFFFFF?text=Article+Image';"
+                            alt="Article Thumbnail" class="w-full h-48 sm:h-full object-cover rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-grow space-y-2">
+                        <div class="text-blue-600 text-sm font-medium">Food, Interior, Minimal</div>
+                        <h3 class="text-xl font-bold text-gray-900">Why you should forget facebook and start using
+                            wibleo</h3>
+                        <p class="text-gray-700 text-sm leading-relaxed">
+                            Sit nunc arcu vestibuuum etarnu. Cursus fringillla commodo id aliquam commoddo nislle
+                            suspendisse aemet noneta auctor nonate volutpat...
+                        </p>
+                        <div class="flex items-center text-gray-500 text-xs sm:text-sm pt-2">
+                            <span class="mr-3"><i class="fas fa-comments mr-1"></i>0 Comments</span>
+                            <span><i class="fas fa-calendar-alt mr-1"></i>May 12, 2022</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex justify-center items-center space-x-2 pt-8 border-t border-gray-200 mt-6">
+                <button
+                    class="px-4 py-2 bg-gray-100 text-gray-600 rounded-md hover:bg-gray-200 transition duration-200 cursor-not-allowed"
+                    disabled>
+                    <i class="fas fa-angle-left"></i>
+                </button>
+                <button class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md shadow-md">1</button>
+                <button
+                    class="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition duration-200">2</button>
+                <button
+                    class="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition duration-200">3</button>
+                <span class="text-gray-500">...</span>
+                <button
+                    class="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition duration-200">10</button>
+                <button
+                    class="px-4 py-2 bg-gray-100 text-gray-600 rounded-md hover:bg-gray-200 transition duration-200">
+                    <i class="fas fa-angle-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- ✅ JavaScript to Toggle Sheet -->
+    <script>
+        const openBtn = document.getElementById('openSheetBtn');
+        const closeBtn = document.getElementById('closeSheetBtn');
+        const sheet = document.getElementById('mobileSheet');
+        const overlay = document.getElementById('sheetOverlay');
+
+        openBtn.addEventListener('click', () => {
+            sheet.classList.remove('translate-y-full');
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            sheet.classList.add('translate-y-full');
+            overlay.classList.add('hidden');
+        });
+
+        overlay.addEventListener('click', () => {
+            sheet.classList.add('translate-y-full');
+            overlay.classList.add('hidden');
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const gridButton = document.getElementById('gridButton');
+            const listButton = document.getElementById('listButton');
+            const articleListContainer = document.getElementById('articleListContainer');
+
+            // Function to set the layout
+            function setLayout(layoutType) {
+                if (layoutType === 'grid') {
+                    articleListContainer.classList.add('articles-grid');
+                    articleListContainer.classList.remove('articles-list', 'space-y-8');
+                    gridButton.classList.add('bg-gray-100');
+                    listButton.classList.remove('bg-gray-100');
+
+                    // Remove bottom border from all article items in grid view
+                    document.querySelectorAll('.article-item').forEach(item => {
+                        item.classList.remove('border-b', 'border-gray-200');
+                    });
+
+                } else { // layoutType === 'list'
+                    articleListContainer.classList.remove('articles-grid');
+                    articleListContainer.classList.add('articles-list', 'space-y-8');
+                    listButton.classList.add('bg-gray-100');
+                    gridButton.classList.remove('bg-gray-100');
+
+                    // Re-add bottom border to all article items in list view except the very last one
+                    document.querySelectorAll('.article-item').forEach((item, index, array) => {
+                        if (index < array.length - 1) { // Apply to all but the last one
+                            item.classList.add('border-b', 'border-gray-200');
+                        } else {
+                            item.classList.remove('border-b', 'border-gray-200'); // Ensure last item doesn't have it
+                        }
+                    });
+                }
+            }
+
+            // Event listeners for buttons
+            gridButton.addEventListener('click', () => setLayout('grid'));
+            listButton.addEventListener('click', () => setLayout('list'));
+
+            // Initial layout setting (default to list as per original design)
+            setLayout('list');
+        });
+    </script>
+</body>
+
+</html>

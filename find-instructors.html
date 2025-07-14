@@ -81,7 +81,7 @@
 
             <!-- Mobile menu button -->
             <button data-collapse-toggle="navbar-default" type="button"
-                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-700 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:outline-none focus:ring-0  focus:ring-gray-200"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-700 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-0  focus:ring-gray-200"
                 aria-controls="navbar-default" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
                 <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -221,7 +221,7 @@
 
             <!-- Input -->
             <input type="text" placeholder="What are you looking for..."
-                class="w-full pl-14 z-50 pr-4 lg:pr-48 py-3 lg:py-6 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:outline-none focus:ring-0  focus:ring-orange shadow-sm" />
+                class="w-full pl-14 z-50 pr-4 lg:pr-48 py-3 lg:py-6 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-0  focus:ring-orange shadow-sm" />
 
             <!-- Dropdown Toggle (inside input, aligned right) -->
             <div class="lg:absolute z-50 inset-y-0 lg:right-40 my-3 flex items-center">
@@ -252,7 +252,7 @@
                         </span>
                         <!-- Input -->
                         <input type="text" placeholder="Search..."
-                            class="py-3 w-full pl-10 rounded-md bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:outline-none focus:ring-0  focus:ring-blue-500 shadow-sm" />
+                            class="py-3 w-full pl-10 rounded-md bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-0  focus:ring-blue-500 shadow-sm" />
                     </div>
                     <div class="max-h-40 overflow-auto">
                         <a href="#" class="block px-4 py-2 hover:bg-gray-100 font-bold text-base"
@@ -288,14 +288,14 @@
             </button>
 
             <!-- Overlay -->
-            <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden"></div>
+            <div id="sidebarOverlay" class="fixed inset-0 h-screen bg-black/50 z-40 hidden lg:hidden"></div>
             <aside id="mobileSidebar"
-                class="fixed top-0 left-0 h-full w-3/4 max-w-xs bg-white p-6 shadow-lg z-50 lg:z-40 transform -translate-x-full transition-transform duration-300 ease-in-out lg:relative lg:translate-x-0 lg:w-1/4 lg:shadow-lg lg:p-6 lg:rounded-xl lg:bg-white space-y-6">
+                class="fixed top-0 left-0 h-full w-3/4 max-w-xs bg-white p-6 shadow-lg z-50 lg:z-40 transform -translate-x-full transition-transform duration-300 ease-in-out lg:relative lg:translate-x-0 lg:w-1/4 lg:shadow-lg lg:p-6 lg:rounded-xl lg:bg-white space-y-6 overflow-auto   ">
                 <!-- Subject & Level Filter -->
                 <div>
                     <div>
                         <button
-                            class="w-full flex justify-between items-center mb-4 font-semibold text-gray-800 text-lg"
+                            class="w-full flex justify-between items-center mb-4 font-semibold text-base text-gray-800 tlg:ext-lg"
                             aria-expanded="true" aria-controls="subjectLevelContent" onclick="toggleSection(this)">
                             Subject & Level
                             <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor"
@@ -328,7 +328,7 @@
 
                 <!-- Price Range Filter -->
                 <div>
-                    <button class="w-full flex justify-between items-center mb-4 font-semibold text-gray-800 text-lg"
+                    <button class="w-full flex justify-between items-center mb-4 font-semibold text-base text-gray-800 tlg:ext-lg"
                         aria-expanded="true" aria-controls="priceRangeContent" onclick="toggleSection(this)">
                         Price range
                         <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor"
@@ -338,7 +338,7 @@
                         </svg>
                     </button>
 
-                    <div id="priceRangeContent" class="transition-all duration-300">
+                    <div id="priceRangeContent" class="transition-all duration-300 overflow-hidden">
                         <div class="flex items-center space-x-2">
                             <input type="number" placeholder="Min price"
                                 class="w-1/2 p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 focus:ring focus:ring-purple-200" />
@@ -351,7 +351,7 @@
 
                 <!-- Instructor Availability (Time of Day + Day of Week) -->
                 <div>
-                    <button class="w-full flex justify-between items-center mb-4 font-semibold text-dark-gray text-lg"
+                    <button class="w-full flex justify-between items-center mb-4 font-semibold text-base text-dark-gray lg:text-lg"
                         aria-expanded="true" aria-controls="availabilityFilter" onclick="toggleSection(this)">
                         Instructor availability
                         <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor"
@@ -363,7 +363,7 @@
                     <!-- Collapsible Content -->
                     <div id="availabilityFilter" class="overflow-hidden transition-all duration-300 max-h-screen">
                         <div class="space-y-4 flex flex-col">
-                            <h6 class="font-semibold text-gray-800 text-base">
+                            <h6 class="font-semibold text-gray-800 text-sm lg:text-base ">
                                 Time of day
                             </h6>
 
@@ -372,7 +372,7 @@
                                 <input type="checkbox"
                                     class="accent-purple w-5 h-5 rounded focus:ring-purple-500 focus:outline-none" />
                                 <span class="text-gray-700 flex items-center gap-2">
-                                    <i class="fa-solid fa-cloud-sun text-lg text-purple"></i>
+                                    <i class="fa-solid fa-cloud-sun text-xs lg:text-lg text-purple"></i>
                                     PRE 12PM
                                 </span>
                             </label>
@@ -382,7 +382,7 @@
                                 <input type="checkbox"
                                     class="accent-purple w-5 h-5 rounded focus:ring-purple-500 focus:outline-none" />
                                 <span class="text-gray-700 flex items-center gap-2">
-                                    <i class="fa-solid fa-sun text-lg text-purple"></i> 12PM
+                                    <i class="fa-solid fa-sun text-xs lg:text-lg text-purple"></i> 12PM
                                     - 5PM=
                                 </span>
                             </label>
@@ -392,7 +392,7 @@
                                 <input type="checkbox"
                                     class="accent-purple w-5 h-5 rounded focus:ring-purple-500 focus:outline-none" />
                                 <span class="text-gray-700 flex items-center gap-2">
-                                    <i class="fa-solid fa-mountain-sun text-lg text-purple"></i>
+                                    <i class="fa-solid fa-mountain-sun text-xs lg:text-lg text-purple"></i>
                                     AFTER 5PM
                                 </span>
                             </label>
@@ -400,7 +400,7 @@
 
                         <!-- Day of the Week -->
                         <div class="space-y-3 mt-6 flex flex-col">
-                            <h6 class="font-semibold text-gray-800 text-base mb-3">
+                            <h6 class="font-semibold text-gray-800 text-sm lg:text-base  mb-3">
                                 Day of the Week
                             </h6>
 
@@ -453,7 +453,7 @@
                 <!-- Rating Section -->
                 <div>
                     <!-- Toggle Header -->
-                    <button class="w-full flex justify-between items-center mb-4 font-semibold text-dark-gray text-lg"
+                    <button class="w-full flex justify-between items-center mb-4 font-semibold text-base text-dark-gray lg:text-lg"
                         aria-expanded="true" aria-controls="ratingSection" onclick="toggleSection(this)">
                         Rating
                         <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor"
@@ -537,7 +537,7 @@
                 <!-- Instructor Location & Radius Section -->
                 <div>
                     <!-- Toggle Header -->
-                    <button class="w-full flex justify-between items-center mb-4 font-semibold text-dark-gray text-lg"
+                    <button class="w-full flex justify-between items-center mb-4 font-semibold text-base text-dark-gray lg:text-lg"
                         aria-expanded="true" aria-controls="locationSection" onclick="toggleSection(this)">
                         Tutor Location
                         <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor"
@@ -598,8 +598,8 @@
                 <!-- Miscellaneous Section -->
                 <div>
                     <!-- Toggle Header -->
-                    <button class="w-full flex justify-between items-center mb-4 font-semibold text-dark-gray text-lg"
-                        aria-expanded="true" aria-controls="ratingSection" onclick="toggleSection(this)">
+                    <button class="w-full flex justify-between items-center mb-4 font-semibold text-base text-dark-gray lg:text-lg"
+                        aria-expanded="true" aria-controls="miscellaneousSection" onclick="toggleSection(this)">
                         Miscellaneous
                         <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -640,18 +640,17 @@
 
             <!-- Right Results Area -->
             <div class="flex-1 space-y-6">
-               <!-- card 1 -->
+                <!-- card 1 -->
                 <div
                     class="bg-white rounded-xl group shadow-md p-6 flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6">
                     <!-- Profile Picture and Splide Carousel for Mini Thumbs -->
                     <div class="flex flex-col items-center md:items-start w-full md:w-[30%]">
                         <!-- Main Profile Image -->
-                        <img class="main-profile-display mb-4 w-[400px] aspect-[16/11] rounded-lg"
-                            src="assets/images/course1.jpg"
-                            alt="Arianne Kearns Profile"/>
+                        <img class="main-profile-display mb-4 w-full aspect-[16/11] rounded-lg"
+                            src="assets/images/course1.jpg" alt="Arianne Kearns Profile" />
 
                         <!-- Thumbnail Carousel -->
-                        <div class="thumbnail-carousel splide w-full">
+                        <div class="thumbnail-carousel hidden splide w-full">
                             <div class="splide__track">
                                 <ul class="splide__list">
                                     <li class="splide__slide">
@@ -659,8 +658,8 @@
                                             class="splide__thumbnail" />
                                     </li>
                                     <li class="splide__slide">
-                                        <img src="./assets/images/course2.jpg"
-                                            alt="Gallery thumbnail 2" class="splide__thumbnail" />
+                                        <img src="./assets/images/course2.jpg" alt="Gallery thumbnail 2"
+                                            class="splide__thumbnail" />
                                     </li>
                                     <li class="splide__slide">
                                         <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/03/gallery-8-400x400.jpg"
@@ -684,11 +683,13 @@
                     <!-- Profile Details -->
                     <div class="flex-1 space-y-4">
                         <div class="flex justify-between items-start">
-                            <div class="flex items-center space-x-2">
+                            <div class="flex items-start space-x-3 sm:space-x-4">
                                 <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/03/5-100x100.png"
-                                    alt="Profile picture" class="size-10 rounded-full" />
-                                <div>
-                                    <h3 class="text-xl font-bold text-gray-900 flex items-center space-x-2 mb-1">
+                                    alt="Profile picture" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover" />
+
+                                <div class="text-sm sm:text-base">
+                                    <h3
+                                        class="text-base sm:text-lg font-semibold text-gray-900 flex items-center space-x-1 mb-1">
                                         <span>Arianne Kearns</span>
                                         <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd"
@@ -696,17 +697,18 @@
                                                 clip-rule="evenodd"></path>
                                         </svg>
                                     </h3>
-                                    <p class="text-gray-600 text-sm flex items-center">
+                                    <p class="text-xs sm:text-sm text-gray-600 flex items-center flex-wrap">
                                         <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd"
                                                 d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
                                                 clip-rule="evenodd"></path>
                                         </svg>
                                         Charlotte, OK
-                                        <span class="ml-2 text-orange-500 font-bold">5.0 (07)</span>
+                                        <span class="ml-2 text-orange-500 font-semibold">5.0 (07)</span>
                                     </p>
                                 </div>
                             </div>
+
                             <div class="flex flex-col items-end space-y-1">
                                 <span class="text-gray-600 text-xs">Starting from:</span>
                                 <span class="text-lg font-bold text-purple whitespace-nowrap">$69.00/hr</span>
@@ -787,584 +789,592 @@
                 </div>
                 <!-- card 2 -->
                 <div
-                class="bg-white rounded-xl group shadow-md p-6 flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6">
-                <!-- Profile Picture and Splide Carousel for Mini Thumbs -->
-                <div class="flex flex-col items-center md:items-start w-full md:w-[30%]">
-                    <!-- Main Profile Image -->
-                    <img class="main-profile-display mb-4 w-[400px] aspect-[16/11] rounded-lg"
-                        src="./assets/images/course1.jpg"
-                        alt="Arianne Kearns Profile"/>
+                    class="bg-white rounded-xl group shadow-md p-6 flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6">
+                    <!-- Profile Picture and Splide Carousel for Mini Thumbs -->
+                    <div class="flex flex-col items-center md:items-start w-full md:w-[30%]">
+                        <!-- Main Profile Image -->
+                        <img class="main-profile-display mb-4 w-full aspect-[16/11] rounded-lg"
+                            src="assets/images/course1.jpg" alt="Arianne Kearns Profile" />
 
-                    <!-- Thumbnail Carousel -->
-                    <div class="thumbnail-carousel splide w-full">
-                        <div class="splide__track">
-                            <ul class="splide__list">
-                                <li class="splide__slide">
-                                    <img src="./assets/images/course1.jpg" alt="Gallery thumbnail 1"
-                                        class="splide__thumbnail" />
-                                </li>
-                                <li class="splide__slide">
-                                    <img src="./assets/images/course2.jpg"
-                                        alt="Gallery thumbnail 2" class="splide__thumbnail" />
-                                </li>
-                                <li class="splide__slide">
-                                    <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/03/gallery-8-400x400.jpg"
-                                        alt="Gallery thumbnail 3" class="splide__thumbnail" />
-                                </li>
-                                <li class="splide__slide">
-                                    <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/03/gallery-11-400x400.jpg"
-                                        alt="Gallery thumbnail 4" class="splide__thumbnail" />
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Button pinned to bottom -->
-                    <button
-                        class="bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-lg w-full transition duration-150 ease-in-out mt-auto group-hover:bg-purple group-hover:text-white">
-                        View Profile
-                    </button>
-                </div>
-
-                <!-- Profile Details -->
-                <div class="flex-1 space-y-4">
-                    <div class="flex justify-between items-start">
-                        <div class="flex items-center space-x-2">
-                            <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/03/5-100x100.png"
-                                alt="Profile picture" class="size-10 rounded-full" />
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-900 flex items-center space-x-2 mb-1">
-                                    <span>Arianne Kearns</span>
-                                    <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd"
-                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                </h3>
-                                <p class="text-gray-600 text-sm flex items-center">
-                                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd"
-                                            d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    Charlotte, OK
-                                    <span class="ml-2 text-orange-500 font-bold">5.0 (07)</span>
-                                </p>
+                        <!-- Thumbnail Carousel -->
+                        <div class="thumbnail-carousel hidden splide w-full">
+                            <div class="splide__track">
+                                <ul class="splide__list">
+                                    <li class="splide__slide">
+                                        <img src="./assets/images/course1.jpg" alt="Gallery thumbnail 1"
+                                            class="splide__thumbnail" />
+                                    </li>
+                                    <li class="splide__slide">
+                                        <img src="./assets/images/course2.jpg" alt="Gallery thumbnail 2"
+                                            class="splide__thumbnail" />
+                                    </li>
+                                    <li class="splide__slide">
+                                        <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/03/gallery-8-400x400.jpg"
+                                            alt="Gallery thumbnail 3" class="splide__thumbnail" />
+                                    </li>
+                                    <li class="splide__slide">
+                                        <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/03/gallery-11-400x400.jpg"
+                                            alt="Gallery thumbnail 4" class="splide__thumbnail" />
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="flex flex-col items-end space-y-1">
-                            <span class="text-gray-600 text-xs">Starting from:</span>
-                            <span class="text-lg font-bold text-purple whitespace-nowrap">$69.00/hr</span>
+
+                        <!-- Button pinned to bottom -->
+                        <button
+                            class="bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-lg w-full transition duration-150 ease-in-out mt-auto group-hover:bg-purple group-hover:text-white">
+                            View Profile
+                        </button>
+                    </div>
+
+                    <!-- Profile Details -->
+                    <div class="flex-1 space-y-4">
+                        <div class="flex justify-between items-start">
+                            <div class="flex items-start space-x-3 sm:space-x-4">
+                                <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/03/5-100x100.png"
+                                    alt="Profile picture" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover" />
+
+                                <div class="text-sm sm:text-base">
+                                    <h3
+                                        class="text-base sm:text-lg font-semibold text-gray-900 flex items-center space-x-1 mb-1">
+                                        <span>Arianne Kearns</span>
+                                        <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                    </h3>
+                                    <p class="text-xs sm:text-sm text-gray-600 flex items-center flex-wrap">
+                                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                        Charlotte, OK
+                                        <span class="ml-2 text-orange-500 font-semibold">5.0 (07)</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col items-end space-y-1">
+                                <span class="text-gray-600 text-xs">Starting from:</span>
+                                <span class="text-lg font-bold text-purple whitespace-nowrap">$69.00/hr</span>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Availability Calendar -->
-                    <div class="mt-4">
-                        <h4 class="font-semibold text-gray-800 mb-2">Availability</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span
-                                class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">MON</span>
-                            <span
-                                class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">TUE</span>
-                            <span
-                                class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">WED</span>
-                            <span
-                                class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">THU</span>
-                            <span
-                                class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">FRI</span>
-                            <span
-                                class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">SAT</span>
-                            <span
-                                class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">SUN</span>
+                        <!-- Availability Calendar -->
+                        <div class="mt-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Availability</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">MON</span>
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">TUE</span>
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">WED</span>
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">THU</span>
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">FRI</span>
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">SAT</span>
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">SUN</span>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Service Options -->
-                    <div>
-                        <h4 class="font-semibold text-gray-800 mb-2">
-                            You can get teaching service direct at
-                        </h4>
-                        <div class="flex flex-wrap gap-2 text-sm">
-                            <span
-                                class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
-                                <i class="fa fa-video-camera text-orange" aria-hidden="true"></i>
-                                <span>Online</span>
-                            </span>
-                            <span
-                                class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
-                                <i class="fa-solid fa-location-dot text-blue"></i>
-                                <span>Offline</span>
-                            </span>
-                            <span
-                                class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
-                                <i class="fa-solid fa-home text-orange"></i>
-                                <span>Student place</span>
-                            </span>
-                            <span
-                                class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
-                                <i class="fa-solid fa-paper-plane text-green-500"></i>
-                                <span>Student place</span>
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- Description -->
-                    <div>
-                        <p class="text-gray-700 leading-relaxed text-sm">
-                            On the other hand, we denounce with righteous indignation and
-                            dislike men who are so beguiled and demoralized by the charms
-                            of pleasure of the moment, so blinded by desire, that they
-                            cannot foresee the pain and trouble
-                        </p>
-                    </div>
-
-                    <!-- Tags/Skills -->
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Arts, crafts &
-                            music</span>
-                        <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Graduation</span>
-                        <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Health, fitness,
-                            sports</span>
-                        <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">IT</span>
-                        <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">...</span>
-                    </div>
-                </div>
-            </div>
-            <!-- card 3 -->
-            <div
-            class="bg-white rounded-xl group shadow-md p-6 flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6">
-            <!-- Profile Picture and Splide Carousel for Mini Thumbs -->
-            <div class="flex flex-col items-center md:items-start w-full md:w-[30%]">
-                <!-- Main Profile Image -->
-                <img class="main-profile-display mb-4 w-[400px] aspect-[16/11] rounded-lg"
-                    src="./assets/images/course1.jpg"
-                    alt="Arianne Kearns Profile"/>
-
-                <!-- Thumbnail Carousel -->
-                <div class="thumbnail-carousel splide w-full">
-                    <div class="splide__track">
-                        <ul class="splide__list">
-                            <li class="splide__slide">
-                                <img src="./assets/images/course1.jpg" alt="Gallery thumbnail 1"
-                                    class="splide__thumbnail" />
-                            </li>
-                            <li class="splide__slide">
-                                <img src="./assets/images/course2.jpg"
-                                    alt="Gallery thumbnail 2" class="splide__thumbnail" />
-                            </li>
-                            <li class="splide__slide">
-                                <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/03/gallery-8-400x400.jpg"
-                                    alt="Gallery thumbnail 3" class="splide__thumbnail" />
-                            </li>
-                            <li class="splide__slide">
-                                <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/03/gallery-11-400x400.jpg"
-                                    alt="Gallery thumbnail 4" class="splide__thumbnail" />
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Button pinned to bottom -->
-                <button
-                    class="bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-lg w-full transition duration-150 ease-in-out mt-auto group-hover:bg-purple group-hover:text-white">
-                    View Profile
-                </button>
-            </div>
-
-            <!-- Profile Details -->
-            <div class="flex-1 space-y-4">
-                <div class="flex justify-between items-start">
-                    <div class="flex items-center space-x-2">
-                        <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/03/5-100x100.png"
-                            alt="Profile picture" class="size-10 rounded-full" />
+                        <!-- Service Options -->
                         <div>
-                            <h3 class="text-xl font-bold text-gray-900 flex items-center space-x-2 mb-1">
-                                <span>Arianne Kearns</span>
-                                <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                            </h3>
-                            <p class="text-gray-600 text-sm flex items-center">
-                                <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                                Charlotte, OK
-                                <span class="ml-2 text-orange-500 font-bold">5.0 (07)</span>
+                            <h4 class="font-semibold text-gray-800 mb-2">
+                                You can get teaching service direct at
+                            </h4>
+                            <div class="flex flex-wrap gap-2 text-sm">
+                                <span
+                                    class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
+                                    <i class="fa fa-video-camera text-orange" aria-hidden="true"></i>
+                                    <span>Online</span>
+                                </span>
+                                <span
+                                    class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
+                                    <i class="fa-solid fa-location-dot text-blue"></i>
+                                    <span>Offline</span>
+                                </span>
+                                <span
+                                    class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
+                                    <i class="fa-solid fa-home text-orange"></i>
+                                    <span>Student place</span>
+                                </span>
+                                <span
+                                    class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
+                                    <i class="fa-solid fa-paper-plane text-green-500"></i>
+                                    <span>Student place</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <div>
+                            <p class="text-gray-700 leading-relaxed text-sm">
+                                On the other hand, we denounce with righteous indignation and
+                                dislike men who are so beguiled and demoralized by the charms
+                                of pleasure of the moment, so blinded by desire, that they
+                                cannot foresee the pain and trouble
                             </p>
                         </div>
-                    </div>
-                    <div class="flex flex-col items-end space-y-1">
-                        <span class="text-gray-600 text-xs">Starting from:</span>
-                        <span class="text-lg font-bold text-purple whitespace-nowrap">$69.00/hr</span>
-                    </div>
-                </div>
 
-                <!-- Availability Calendar -->
-                <div class="mt-4">
-                    <h4 class="font-semibold text-gray-800 mb-2">Availability</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">MON</span>
-                        <span
-                            class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">TUE</span>
-                        <span
-                            class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">WED</span>
-                        <span
-                            class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">THU</span>
-                        <span
-                            class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">FRI</span>
-                        <span
-                            class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">SAT</span>
-                        <span
-                            class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">SUN</span>
+                        <!-- Tags/Skills -->
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Arts, crafts &
+                                music</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Graduation</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Health, fitness,
+                                sports</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">IT</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">...</span>
+                        </div>
                     </div>
                 </div>
+                <!-- card 3 -->
+                <div
+                    class="bg-white rounded-xl group shadow-md p-6 flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6">
+                    <!-- Profile Picture and Splide Carousel for Mini Thumbs -->
+                    <div class="flex flex-col items-center md:items-start w-full md:w-[30%]">
+                        <!-- Main Profile Image -->
+                        <img class="main-profile-display mb-4 w-full aspect-[16/11] rounded-lg"
+                            src="assets/images/course1.jpg" alt="Arianne Kearns Profile" />
 
-                <!-- Service Options -->
-                <div>
-                    <h4 class="font-semibold text-gray-800 mb-2">
-                        You can get teaching service direct at
-                    </h4>
-                    <div class="flex flex-wrap gap-2 text-sm">
-                        <span
-                            class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
-                            <i class="fa fa-video-camera text-orange" aria-hidden="true"></i>
-                            <span>Online</span>
-                        </span>
-                        <span
-                            class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
-                            <i class="fa-solid fa-location-dot text-blue"></i>
-                            <span>Offline</span>
-                        </span>
-                        <span
-                            class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
-                            <i class="fa-solid fa-home text-orange"></i>
-                            <span>Student place</span>
-                        </span>
-                        <span
-                            class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
-                            <i class="fa-solid fa-paper-plane text-green-500"></i>
-                            <span>Student place</span>
-                        </span>
+                        <!-- Thumbnail Carousel -->
+                        <div class="thumbnail-carousel hidden splide w-full">
+                            <div class="splide__track">
+                                <ul class="splide__list">
+                                    <li class="splide__slide">
+                                        <img src="./assets/images/course1.jpg" alt="Gallery thumbnail 1"
+                                            class="splide__thumbnail" />
+                                    </li>
+                                    <li class="splide__slide">
+                                        <img src="./assets/images/course2.jpg" alt="Gallery thumbnail 2"
+                                            class="splide__thumbnail" />
+                                    </li>
+                                    <li class="splide__slide">
+                                        <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/03/gallery-8-400x400.jpg"
+                                            alt="Gallery thumbnail 3" class="splide__thumbnail" />
+                                    </li>
+                                    <li class="splide__slide">
+                                        <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/03/gallery-11-400x400.jpg"
+                                            alt="Gallery thumbnail 4" class="splide__thumbnail" />
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Button pinned to bottom -->
+                        <button
+                            class="bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-lg w-full transition duration-150 ease-in-out mt-auto group-hover:bg-purple group-hover:text-white">
+                            View Profile
+                        </button>
+                    </div>
+
+                    <!-- Profile Details -->
+                    <div class="flex-1 space-y-4">
+                        <div class="flex justify-between items-start">
+                            <div class="flex items-start space-x-3 sm:space-x-4">
+                                <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/03/5-100x100.png"
+                                    alt="Profile picture" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover" />
+
+                                <div class="text-sm sm:text-base">
+                                    <h3
+                                        class="text-base sm:text-lg font-semibold text-gray-900 flex items-center space-x-1 mb-1">
+                                        <span>Arianne Kearns</span>
+                                        <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                    </h3>
+                                    <p class="text-xs sm:text-sm text-gray-600 flex items-center flex-wrap">
+                                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                        Charlotte, OK
+                                        <span class="ml-2 text-orange-500 font-semibold">5.0 (07)</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col items-end space-y-1">
+                                <span class="text-gray-600 text-xs">Starting from:</span>
+                                <span class="text-lg font-bold text-purple whitespace-nowrap">$69.00/hr</span>
+                            </div>
+                        </div>
+
+                        <!-- Availability Calendar -->
+                        <div class="mt-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Availability</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">MON</span>
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">TUE</span>
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">WED</span>
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">THU</span>
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">FRI</span>
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">SAT</span>
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">SUN</span>
+                            </div>
+                        </div>
+
+                        <!-- Service Options -->
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">
+                                You can get teaching service direct at
+                            </h4>
+                            <div class="flex flex-wrap gap-2 text-sm">
+                                <span
+                                    class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
+                                    <i class="fa fa-video-camera text-orange" aria-hidden="true"></i>
+                                    <span>Online</span>
+                                </span>
+                                <span
+                                    class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
+                                    <i class="fa-solid fa-location-dot text-blue"></i>
+                                    <span>Offline</span>
+                                </span>
+                                <span
+                                    class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
+                                    <i class="fa-solid fa-home text-orange"></i>
+                                    <span>Student place</span>
+                                </span>
+                                <span
+                                    class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
+                                    <i class="fa-solid fa-paper-plane text-green-500"></i>
+                                    <span>Student place</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <div>
+                            <p class="text-gray-700 leading-relaxed text-sm">
+                                On the other hand, we denounce with righteous indignation and
+                                dislike men who are so beguiled and demoralized by the charms
+                                of pleasure of the moment, so blinded by desire, that they
+                                cannot foresee the pain and trouble
+                            </p>
+                        </div>
+
+                        <!-- Tags/Skills -->
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Arts, crafts &
+                                music</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Graduation</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Health, fitness,
+                                sports</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">IT</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">...</span>
+                        </div>
                     </div>
                 </div>
+                <!-- card 4 -->
+                <div
+                    class="bg-white rounded-xl group shadow-md p-6 flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6">
+                    <!-- Profile Picture and Splide Carousel for Mini Thumbs -->
+                    <div class="flex flex-col items-center md:items-start w-full md:w-[30%]">
+                        <!-- Main Profile Image -->
+                        <img class="main-profile-display mb-4 w-full aspect-[16/11] rounded-lg"
+                            src="assets/images/course1.jpg" alt="Arianne Kearns Profile" />
 
-                <!-- Description -->
-                <div>
-                    <p class="text-gray-700 leading-relaxed text-sm">
-                        On the other hand, we denounce with righteous indignation and
-                        dislike men who are so beguiled and demoralized by the charms
-                        of pleasure of the moment, so blinded by desire, that they
-                        cannot foresee the pain and trouble
-                    </p>
-                </div>
+                        <!-- Thumbnail Carousel -->
+                        <div class="thumbnail-carousel hidden splide w-full">
+                            <div class="splide__track">
+                                <ul class="splide__list">
+                                    <li class="splide__slide">
+                                        <img src="./assets/images/course1.jpg" alt="Gallery thumbnail 1"
+                                            class="splide__thumbnail" />
+                                    </li>
+                                    <li class="splide__slide">
+                                        <img src="./assets/images/course2.jpg" alt="Gallery thumbnail 2"
+                                            class="splide__thumbnail" />
+                                    </li>
+                                    <li class="splide__slide">
+                                        <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/03/gallery-8-400x400.jpg"
+                                            alt="Gallery thumbnail 3" class="splide__thumbnail" />
+                                    </li>
+                                    <li class="splide__slide">
+                                        <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/03/gallery-11-400x400.jpg"
+                                            alt="Gallery thumbnail 4" class="splide__thumbnail" />
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
 
-                <!-- Tags/Skills -->
-                <div class="flex flex-wrap gap-2">
-                    <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Arts, crafts &
-                        music</span>
-                    <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Graduation</span>
-                    <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Health, fitness,
-                        sports</span>
-                    <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">IT</span>
-                    <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">...</span>
-                </div>
-            </div>
-        </div>
-        <!-- card 4 -->
-        <div
-        class="bg-white rounded-xl group shadow-md p-6 flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6">
-        <!-- Profile Picture and Splide Carousel for Mini Thumbs -->
-        <div class="flex flex-col items-center md:items-start w-full md:w-[30%]">
-            <!-- Main Profile Image -->
-            <img class="main-profile-display mb-4 w-[400px] aspect-[16/11] rounded-lg"
-                src="./assets/images/course1.jpg"
-                alt="Arianne Kearns Profile"/>
+                        <!-- Button pinned to bottom -->
+                        <button
+                            class="bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-lg w-full transition duration-150 ease-in-out mt-auto group-hover:bg-purple group-hover:text-white">
+                            View Profile
+                        </button>
+                    </div>
 
-            <!-- Thumbnail Carousel -->
-            <div class="thumbnail-carousel splide w-full">
-                <div class="splide__track">
-                    <ul class="splide__list">
-                        <li class="splide__slide">
-                            <img src="./assets/images/course1.jpg" alt="Gallery thumbnail 1"
-                                class="splide__thumbnail" />
-                        </li>
-                        <li class="splide__slide">
-                            <img src="./assets/images/course2.jpg"
-                                alt="Gallery thumbnail 2" class="splide__thumbnail" />
-                        </li>
-                        <li class="splide__slide">
-                            <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/03/gallery-8-400x400.jpg"
-                                alt="Gallery thumbnail 3" class="splide__thumbnail" />
-                        </li>
-                        <li class="splide__slide">
-                            <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/03/gallery-11-400x400.jpg"
-                                alt="Gallery thumbnail 4" class="splide__thumbnail" />
-                        </li>
-                    </ul>
-                </div>
-            </div>
+                    <!-- Profile Details -->
+                    <div class="flex-1 space-y-4">
+                        <div class="flex justify-between items-start">
+                            <div class="flex items-start space-x-3 sm:space-x-4">
+                                <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/03/5-100x100.png"
+                                    alt="Profile picture" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover" />
 
-            <!-- Button pinned to bottom -->
-            <button
-                class="bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-lg w-full transition duration-150 ease-in-out mt-auto group-hover:bg-purple group-hover:text-white">
-                View Profile
-            </button>
-        </div>
+                                <div class="text-sm sm:text-base">
+                                    <h3
+                                        class="text-base sm:text-lg font-semibold text-gray-900 flex items-center space-x-1 mb-1">
+                                        <span>Arianne Kearns</span>
+                                        <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                    </h3>
+                                    <p class="text-xs sm:text-sm text-gray-600 flex items-center flex-wrap">
+                                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                        Charlotte, OK
+                                        <span class="ml-2 text-orange-500 font-semibold">5.0 (07)</span>
+                                    </p>
+                                </div>
+                            </div>
 
-        <!-- Profile Details -->
-        <div class="flex-1 space-y-4">
-            <div class="flex justify-between items-start">
-                <div class="flex items-center space-x-2">
-                    <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/03/5-100x100.png"
-                        alt="Profile picture" class="size-10 rounded-full" />
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900 flex items-center space-x-2 mb-1">
-                            <span>Arianne Kearns</span>
-                            <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </h3>
-                        <p class="text-gray-600 text-sm flex items-center">
-                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            Charlotte, OK
-                            <span class="ml-2 text-orange-500 font-bold">5.0 (07)</span>
-                        </p>
+                            <div class="flex flex-col items-end space-y-1">
+                                <span class="text-gray-600 text-xs">Starting from:</span>
+                                <span class="text-lg font-bold text-purple whitespace-nowrap">$69.00/hr</span>
+                            </div>
+                        </div>
+
+                        <!-- Availability Calendar -->
+                        <div class="mt-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Availability</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">MON</span>
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">TUE</span>
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">WED</span>
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">THU</span>
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">FRI</span>
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">SAT</span>
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">SUN</span>
+                            </div>
+                        </div>
+
+                        <!-- Service Options -->
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">
+                                You can get teaching service direct at
+                            </h4>
+                            <div class="flex flex-wrap gap-2 text-sm">
+                                <span
+                                    class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
+                                    <i class="fa fa-video-camera text-orange" aria-hidden="true"></i>
+                                    <span>Online</span>
+                                </span>
+                                <span
+                                    class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
+                                    <i class="fa-solid fa-location-dot text-blue"></i>
+                                    <span>Offline</span>
+                                </span>
+                                <span
+                                    class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
+                                    <i class="fa-solid fa-home text-orange"></i>
+                                    <span>Student place</span>
+                                </span>
+                                <span
+                                    class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
+                                    <i class="fa-solid fa-paper-plane text-green-500"></i>
+                                    <span>Student place</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <div>
+                            <p class="text-gray-700 leading-relaxed text-sm">
+                                On the other hand, we denounce with righteous indignation and
+                                dislike men who are so beguiled and demoralized by the charms
+                                of pleasure of the moment, so blinded by desire, that they
+                                cannot foresee the pain and trouble
+                            </p>
+                        </div>
+
+                        <!-- Tags/Skills -->
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Arts, crafts &
+                                music</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Graduation</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Health, fitness,
+                                sports</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">IT</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">...</span>
+                        </div>
                     </div>
                 </div>
-                <div class="flex flex-col items-end space-y-1">
-                    <span class="text-gray-600 text-xs">Starting from:</span>
-                    <span class="text-lg font-bold text-purple whitespace-nowrap">$69.00/hr</span>
+                <!-- card 5 -->
+                <div
+                    class="bg-white rounded-xl group shadow-md p-6 flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6">
+                    <!-- Profile Picture and Splide Carousel for Mini Thumbs -->
+                    <div class="flex flex-col items-center md:items-start w-full md:w-[30%]">
+                        <!-- Main Profile Image -->
+                        <img class="main-profile-display mb-4 w-full aspect-[16/11] rounded-lg"
+                            src="assets/images/course1.jpg" alt="Arianne Kearns Profile" />
+
+                        <!-- Thumbnail Carousel -->
+                        <div class="thumbnail-carousel hidden splide w-full">
+                            <div class="splide__track">
+                                <ul class="splide__list">
+                                    <li class="splide__slide">
+                                        <img src="./assets/images/course1.jpg" alt="Gallery thumbnail 1"
+                                            class="splide__thumbnail" />
+                                    </li>
+                                    <li class="splide__slide">
+                                        <img src="./assets/images/course2.jpg" alt="Gallery thumbnail 2"
+                                            class="splide__thumbnail" />
+                                    </li>
+                                    <li class="splide__slide">
+                                        <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/03/gallery-8-400x400.jpg"
+                                            alt="Gallery thumbnail 3" class="splide__thumbnail" />
+                                    </li>
+                                    <li class="splide__slide">
+                                        <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/03/gallery-11-400x400.jpg"
+                                            alt="Gallery thumbnail 4" class="splide__thumbnail" />
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Button pinned to bottom -->
+                        <button
+                            class="bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-lg w-full transition duration-150 ease-in-out mt-auto group-hover:bg-purple group-hover:text-white">
+                            View Profile
+                        </button>
+                    </div>
+
+                    <!-- Profile Details -->
+                    <div class="flex-1 space-y-4">
+                        <div class="flex justify-between items-start">
+                            <div class="flex items-start space-x-3 sm:space-x-4">
+                                <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/03/5-100x100.png"
+                                    alt="Profile picture" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover" />
+
+                                <div class="text-sm sm:text-base">
+                                    <h3
+                                        class="text-base sm:text-lg font-semibold text-gray-900 flex items-center space-x-1 mb-1">
+                                        <span>Arianne Kearns</span>
+                                        <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                    </h3>
+                                    <p class="text-xs sm:text-sm text-gray-600 flex items-center flex-wrap">
+                                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                        Charlotte, OK
+                                        <span class="ml-2 text-orange-500 font-semibold">5.0 (07)</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col items-end space-y-1">
+                                <span class="text-gray-600 text-xs">Starting from:</span>
+                                <span class="text-lg font-bold text-purple whitespace-nowrap">$69.00/hr</span>
+                            </div>
+                        </div>
+
+                        <!-- Availability Calendar -->
+                        <div class="mt-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">Availability</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">MON</span>
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">TUE</span>
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">WED</span>
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">THU</span>
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">FRI</span>
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">SAT</span>
+                                <span
+                                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">SUN</span>
+                            </div>
+                        </div>
+
+                        <!-- Service Options -->
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">
+                                You can get teaching service direct at
+                            </h4>
+                            <div class="flex flex-wrap gap-2 text-sm">
+                                <span
+                                    class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
+                                    <i class="fa fa-video-camera text-orange" aria-hidden="true"></i>
+                                    <span>Online</span>
+                                </span>
+                                <span
+                                    class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
+                                    <i class="fa-solid fa-location-dot text-blue"></i>
+                                    <span>Offline</span>
+                                </span>
+                                <span
+                                    class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
+                                    <i class="fa-solid fa-home text-orange"></i>
+                                    <span>Student place</span>
+                                </span>
+                                <span
+                                    class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
+                                    <i class="fa-solid fa-paper-plane text-green-500"></i>
+                                    <span>Student place</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <div>
+                            <p class="text-gray-700 leading-relaxed text-sm">
+                                On the other hand, we denounce with righteous indignation and
+                                dislike men who are so beguiled and demoralized by the charms
+                                of pleasure of the moment, so blinded by desire, that they
+                                cannot foresee the pain and trouble
+                            </p>
+                        </div>
+
+                        <!-- Tags/Skills -->
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Arts, crafts &
+                                music</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Graduation</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Health, fitness,
+                                sports</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">IT</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">...</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Availability Calendar -->
-            <div class="mt-4">
-                <h4 class="font-semibold text-gray-800 mb-2">Availability</h4>
-                <div class="flex flex-wrap gap-2">
-                    <span
-                        class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">MON</span>
-                    <span
-                        class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">TUE</span>
-                    <span
-                        class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">WED</span>
-                    <span
-                        class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">THU</span>
-                    <span
-                        class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">FRI</span>
-                    <span
-                        class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">SAT</span>
-                    <span
-                        class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">SUN</span>
-                </div>
-            </div>
-
-            <!-- Service Options -->
-            <div>
-                <h4 class="font-semibold text-gray-800 mb-2">
-                    You can get teaching service direct at
-                </h4>
-                <div class="flex flex-wrap gap-2 text-sm">
-                    <span
-                        class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
-                        <i class="fa fa-video-camera text-orange" aria-hidden="true"></i>
-                        <span>Online</span>
-                    </span>
-                    <span
-                        class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
-                        <i class="fa-solid fa-location-dot text-blue"></i>
-                        <span>Offline</span>
-                    </span>
-                    <span
-                        class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
-                        <i class="fa-solid fa-home text-orange"></i>
-                        <span>Student place</span>
-                    </span>
-                    <span
-                        class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
-                        <i class="fa-solid fa-paper-plane text-green-500"></i>
-                        <span>Student place</span>
-                    </span>
-                </div>
-            </div>
-
-            <!-- Description -->
-            <div>
-                <p class="text-gray-700 leading-relaxed text-sm">
-                    On the other hand, we denounce with righteous indignation and
-                    dislike men who are so beguiled and demoralized by the charms
-                    of pleasure of the moment, so blinded by desire, that they
-                    cannot foresee the pain and trouble
-                </p>
-            </div>
-
-            <!-- Tags/Skills -->
-            <div class="flex flex-wrap gap-2">
-                <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Arts, crafts &
-                    music</span>
-                <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Graduation</span>
-                <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Health, fitness,
-                    sports</span>
-                <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">IT</span>
-                <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">...</span>
-            </div>
-        </div>
-    </div>
-    <!-- card 5 -->
-    <div
-    class="bg-white rounded-xl group shadow-md p-6 flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6">
-    <!-- Profile Picture and Splide Carousel for Mini Thumbs -->
-    <div class="flex flex-col items-center md:items-start w-full md:w-[30%]">
-        <!-- Main Profile Image -->
-        <img class="main-profile-display mb-4 w-[400px] aspect-[16/11] rounded-lg"
-            src="./assets/images/course1.jpg"
-            alt="Arianne Kearns Profile"/>
-
-        <!-- Thumbnail Carousel -->
-        <div class="thumbnail-carousel splide w-full">
-            <div class="splide__track">
-                <ul class="splide__list">
-                    <li class="splide__slide">
-                        <img src="./assets/images/course1.jpg" alt="Gallery thumbnail 1"
-                            class="splide__thumbnail" />
-                    </li>
-                    <li class="splide__slide">
-                        <img src="./assets/images/course2.jpg"
-                            alt="Gallery thumbnail 2" class="splide__thumbnail" />
-                    </li>
-                    <li class="splide__slide">
-                        <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/03/gallery-8-400x400.jpg"
-                            alt="Gallery thumbnail 3" class="splide__thumbnail" />
-                    </li>
-                    <li class="splide__slide">
-                        <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/03/gallery-11-400x400.jpg"
-                            alt="Gallery thumbnail 4" class="splide__thumbnail" />
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Button pinned to bottom -->
-        <button
-            class="bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-lg w-full transition duration-150 ease-in-out mt-auto group-hover:bg-purple group-hover:text-white">
-            View Profile
-        </button>
-    </div>
-
-    <!-- Profile Details -->
-    <div class="flex-1 space-y-4">
-        <div class="flex justify-between items-start">
-            <div class="flex items-center space-x-2">
-                <img src="https://demos.wp-guppy.com/tuturn/wp-content/uploads/2022/03/5-100x100.png"
-                    alt="Profile picture" class="size-10 rounded-full" />
-                <div>
-                    <h3 class="text-xl font-bold text-gray-900 flex items-center space-x-2 mb-1">
-                        <span>Arianne Kearns</span>
-                        <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd"
-                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </h3>
-                    <p class="text-gray-600 text-sm flex items-center">
-                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd"
-                                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        Charlotte, OK
-                        <span class="ml-2 text-orange-500 font-bold">5.0 (07)</span>
-                    </p>
-                </div>
-            </div>
-            <div class="flex flex-col items-end space-y-1">
-                <span class="text-gray-600 text-xs">Starting from:</span>
-                <span class="text-lg font-bold text-purple whitespace-nowrap">$69.00/hr</span>
-            </div>
-        </div>
-
-        <!-- Availability Calendar -->
-        <div class="mt-4">
-            <h4 class="font-semibold text-gray-800 mb-2">Availability</h4>
-            <div class="flex flex-wrap gap-2">
-                <span
-                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">MON</span>
-                <span
-                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">TUE</span>
-                <span
-                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">WED</span>
-                <span
-                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">THU</span>
-                <span
-                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">FRI</span>
-                <span
-                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">SAT</span>
-                <span
-                    class="text-xs bg-green-100 border border-green-200 text-green-700 px-3 py-1 rounded-md">SUN</span>
-            </div>
-        </div>
-
-        <!-- Service Options -->
-        <div>
-            <h4 class="font-semibold text-gray-800 mb-2">
-                You can get teaching service direct at
-            </h4>
-            <div class="flex flex-wrap gap-2 text-sm">
-                <span
-                    class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
-                    <i class="fa fa-video-camera text-orange" aria-hidden="true"></i>
-                    <span>Online</span>
-                </span>
-                <span
-                    class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
-                    <i class="fa-solid fa-location-dot text-blue"></i>
-                    <span>Offline</span>
-                </span>
-                <span
-                    class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
-                    <i class="fa-solid fa-home text-orange"></i>
-                    <span>Student place</span>
-                </span>
-                <span
-                    class="text-xs text-gray-700 px-3 py-1 bg-light-gray rounded-full flex items-center space-x-2">
-                    <i class="fa-solid fa-paper-plane text-green-500"></i>
-                    <span>Student place</span>
-                </span>
-            </div>
-        </div>
-
-        <!-- Description -->
-        <div>
-            <p class="text-gray-700 leading-relaxed text-sm">
-                On the other hand, we denounce with righteous indignation and
-                dislike men who are so beguiled and demoralized by the charms
-                of pleasure of the moment, so blinded by desire, that they
-                cannot foresee the pain and trouble
-            </p>
-        </div>
-
-        <!-- Tags/Skills -->
-        <div class="flex flex-wrap gap-2">
-            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Arts, crafts &
-                music</span>
-            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Graduation</span>
-            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Health, fitness,
-                sports</span>
-            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">IT</span>
-            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">...</span>
-        </div>
-    </div>
-</div>
             </div>
 
         </div>
@@ -1642,43 +1652,42 @@
 <!-- Splide.js JavaScript -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        // Loop through each carousel
-        document.querySelectorAll(".thumbnail-carousel").forEach((carouselEl, index) => {
-            const mainImage = carouselEl.closest(".flex-col").querySelector(".main-profile-display");
+        // Get the first carousel
+        const carouselEl = document.querySelector(".thumbnail-carousel");
+        if (!carouselEl) return;
 
-            const splide = new Splide(carouselEl, {
-                perPage: 4,
-                gap: 10,
-                rewind: true,
-                pagination: false,
-                arrows: false,
-                breakpoints: {
-                    600: {
-                        perPage: 3,
-                    },
-                },
-            });
+        // Get the corresponding main image
+        const mainImage = carouselEl.closest(".flex-col")?.querySelector(".main-profile-display");
+        if (!mainImage) return;
 
-            // When a thumbnail is clicked, update the main image
-            splide.on("click", (slide) => {
-                const img = slide.slide.querySelector("img");
-                if (img) {
-                    mainImage.src = img.src;
-                }
-            });
-
-            splide.on("mounted", () => {
-                // Set main image to first thumbnail on mount
-                const firstImg = carouselEl.querySelector(".splide__slide img");
-                if (firstImg && mainImage) {
-                    mainImage.src = firstImg.src;
-                }
-            });
-
-            splide.mount();
+        const splide = new Splide(carouselEl, {
+            perPage: 4,
+            gap: 10,
+            rewind: true,
+            pagination: false,
+            arrows: false,
         });
+
+        // When a thumbnail is clicked, update the main image
+        splide.on("click", (slide) => {
+            const img = slide.slide.querySelector("img");
+            if (img) {
+                mainImage.src = img.src;
+            }
+        });
+
+        splide.on("mounted", () => {
+            // Set main image to first thumbnail on mount
+            const firstImg = carouselEl.querySelector(".splide__slide img");
+            if (firstImg) {
+                mainImage.src = firstImg.src;
+            }
+        });
+
+        splide.mount();
     });
 </script>
+
 
 <script>
     const menuButton = document.getElementById("menu-button");
